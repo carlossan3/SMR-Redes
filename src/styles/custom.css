@@ -1,0 +1,39 @@
+/* 1. Importar la fuente Geist Sans */
+@import url('https://cdn.jsdelivr.net/npm/geist@1.0.0/dist/fonts/geist-sans/style.css');
+
+:root {
+  /* 2. Configurar la fuente principal */
+  --sl-font: 'Geist Sans', 'Inter', sans-serif;
+
+  /* 3. Colores del tema */
+  --sl-color-accent-low: #1e3a8a; /* Fondo para elementos destacados */
+  --sl-color-accent: #2563eb;     /* Azul principal */
+  --sl-color-accent-high: #4ecdc4; /* Teal (Turquesa) para brillos/enlaces */
+  
+  /* Degradado personalizado para títulos */
+  --theme-gradient: linear-gradient(135deg, #2563eb, #4ecdc4);
+}
+
+/* 4. Glassmorphism en el Sidebar */
+sidebar-layout > aside,
+mobile-starlight-toc {
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-right: 1px solid rgba(78, 205, 196, 0.3) !important; /* Borde sutil color teal */
+}
+
+/* Glassmorphism para modo oscuro (Starlight lo trae por defecto) */
+:root[data-theme='dark'] sidebar-layout > aside {
+  background: rgba(15, 23, 42, 0.4) !important;
+  border-right: 1px solid rgba(78, 205, 196, 0.2) !important;
+}
+
+/* 5. Aplicar degradado a los títulos principales de tu contenido Markdown */
+.sl-markdown-content h1, 
+.sl-markdown-content h2 {
+  background: var(--theme-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
