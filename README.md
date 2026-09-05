@@ -159,7 +159,7 @@ npm run export    # PDF + EPUB
 
 ---
 
-## 📁 Estructura recomendada del proyecto
+## 📁 Estructura del proyecto
 
 ```text
 src/
@@ -197,7 +197,7 @@ src/
 
 ---
 
-## 🧪 Cómo contribuir / usar
+## 🧪 ¿Cómo contribuir / usar?
 
 1. Clona el repo: `git clone https://github.com/carlossan3/SMR-Redes.git`
 2. Instala dependencias: `npm install`
