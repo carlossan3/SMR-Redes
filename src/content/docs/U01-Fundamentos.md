@@ -1,5 +1,5 @@
 ---
-title: U01 — Fundamentos, componentes y topologías
+title: U01-Fundamentos
 description: Entender una LAN antes de empezar a configurarla 🌐
 ---
 
