@@ -24,7 +24,7 @@ const unidades = [
     emoji: '🌐',
     slug: 'U01-Fundamentos',
     folder: '1-fundamentos',
-    label: 'Fundamentos, estructura y representación de redes locales',
+    label: 'Fundamentos de redes',
   },
   /*{
     code: 'U02',
