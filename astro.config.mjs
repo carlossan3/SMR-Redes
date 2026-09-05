@@ -3,9 +3,8 @@ import starlight from '@astrojs/starlight';
 import d2 from 'astro-d2';
 
 export default defineConfig({
-  // Si tu repo se llama "apuntes-web" y tu usuario es "Kanenas"
-  site: 'https://TU-USUARIO.github.io', 
-  base: '/NOMBRE-DEL-REPOSITORIO', // Borra esta línea si el repo se llama exactamente "TU-USUARIO.github.io"
+  site: 'https://carlossan3.github.io',
+  base: '/SMR-Redes', // Borra esta línea si el repo se llama exactamente "TU-USUARIO.github.io"
 
     // ... lo que ya teníamos ...
   integrations: [
