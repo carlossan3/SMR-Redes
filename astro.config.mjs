@@ -20,7 +20,7 @@ import d2 from 'astro-d2';
 
 const unidades = [
   {
-    code: 'U01',
+    code: 'U1',
     emoji: '🌐',
     slug: 'U01-Fundamentos',
     folder: '1-fundamentos',
