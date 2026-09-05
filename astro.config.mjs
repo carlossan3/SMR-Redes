@@ -4,7 +4,7 @@ import d2 from 'astro-d2';
 
 export default defineConfig({
   site: 'https://carlossan3.github.io',
-  base: '/SMR-Redes', // Borra esta línea si el repo se llama exactamente "TU-USUARIO.github.io"
+  base: '/SMR-Redes',
 
     // ... lo que ya teníamos ...
   integrations: [
