@@ -1,5 +1,6 @@
 ---
-title: U01-Fundamentos
+title: Fundamentos
+slug: U01-Fundamentos
 description: Entender una LAN antes de empezar a configurarla 🌐
 ---
 
