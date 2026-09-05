@@ -3,7 +3,7 @@
 
 :root {
   /* 2. Configurar la fuente principal */
-  --sl-font: 'Geist Sans', 'Inter', sans-serif;
+  --sl-font: 'Geist Sans', 'Inter', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
   /* 3. Colores del tema */
   --sl-color-accent-low: #1e3a8a; /* Fondo para elementos destacados */

@@ -201,7 +201,7 @@ export default defineConfig({
 
   integrations: [
     starlight({
-      title: 'Redes Locales · 1.º SMR',
+      title: 'Redes Locales',
 
       description:
         'Apuntes de Redes Locales de 1.º SMR — 8 unidades de trabajo. Teoría explícita, práctica progresiva y diagnóstico. CC BY-SA 4.0 — Carlos Sanchez y Virginia Zornoza',
