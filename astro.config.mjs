@@ -26,7 +26,7 @@ const unidades = [
     folder: '1-fundamentos',
     label: 'Fundamentos, estructura y representación de redes locales',
   },
-  {
+  /*{
     code: 'U02',
     emoji: '🦺',
     slug: 'U02-Prevencion',
@@ -74,7 +74,7 @@ const unidades = [
     slug: 'U08-Mantenimiento_incidencias',
     folder: '8-mantenimiento-incidencias',
     label: 'Mantenimiento y resolución de incidencias en redes locales',
-  },
+  },*/
 ];
 
 /**
