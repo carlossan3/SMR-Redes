@@ -1,12 +1,12 @@
 ---
 title: "Inicio"
-description: "Apuntes de Redes Locales de 1.º SMR — 8 unidades de trabajo. Teoría explícita, práctica progresiva y diagnóstico. CC BY-SA 4.0 — Carlos Sanchez y Virginia Zornoza"
+description: "Apuntes de Redes Locales de SMR1 — 8 unidades de trabajo. Teoría explícita, práctica progresiva y diagnóstico. CC BY-SA 4.0 — Carlos Sanchez y Virginia Zornoza"
 ---
 
 <div align="center">
   <img
     src="/SMR-Redes/portada.png"
-    alt="🌐 Redes Locales — 1.º SMR. Apuntes con teoría, prácticas, Packet Tracer, Debian y resolución de incidencias."
+    alt="🌐 Redes Locales — SMR1. Apuntes con teoría, prácticas, Packet Tracer, Debian y resolución de incidencias."
     style="max-width:100%;height:auto;border-radius:12px;margin:0 0 1.5rem;box-shadow:0 8px 40px rgba(0,0,0,0.15);"
   >
 </div>
@@ -18,7 +18,7 @@ description: "Apuntes de Redes Locales de 1.º SMR — 8 unidades de trabajo. Te
   >🌐 Empezar por la U01</a>
 
   <a
-    href="https://github.com/sergarb1/SMR-Redes"
+    href="https://github.com/carlossan3/SMR-Redes"
     style="display:inline-block;padding:0.75rem 2rem;background:var(--sl-color-gray-5);color:var(--sl-color-white);border-radius:8px;text-decoration:none;font-weight:600;margin:0.25rem 0.5rem;"
   >🐙 Ver en GitHub</a>
 </div>
