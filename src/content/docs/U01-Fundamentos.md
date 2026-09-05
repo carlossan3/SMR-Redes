@@ -1,10 +1,10 @@
 ---
-title: Fundamentos
+title: U1 — Fundamentos de redes
 slug: U01-Fundamentos
 description: Entender una LAN antes de empezar a configurarla 🌐
 ---
 
-# U01 — Fundamentos de redes
+<!-- # U01 — Fundamentos de redes -->
 
 > 🗺️ **Ruta del curso:** 🌐 **AQUÍ ESTÁS — U01 Fundamentos** → 🦺 U02 Riesgos → 🔌 U03 Medios → 🧰 U04 Despliegue → 🖧 U05 Interconexión → 🔀 U06 Conmutación → 🧮 U07 IPv4 → 🚀 U08 IPv6 → 🏢 U09 VLAN → 📡 U10 WLAN → 🧭 U11 Routing y NAT → 🩺 U12 Diagnóstico → 📈 U13 Monitorización → 🗂️ U14 Mantenimiento
 
