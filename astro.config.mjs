@@ -3,7 +3,7 @@ import starlight from '@astrojs/starlight';
 import d2 from 'astro-d2';
 
 /**
- * Estructura real del proyecto SMR-Redes.
+ * Estructura del proyecto SMR-Redes.
  *
  * Cada unidad tiene:
  * - un archivo principal en src/content/docs/, por ejemplo:
@@ -27,49 +27,49 @@ const unidades = [
     label: 'Fundamentos de redes',
   },
   /*{
-    code: 'U02',
+    code: 'U2',
     emoji: '🦺',
     slug: 'U02-Prevencion',
     folder: '2-prevencion',
     label: 'Prevención de riesgos y protección ambiental en redes',
   },
   {
-    code: 'U03',
+    code: 'U3',
     emoji: '🔌',
     slug: 'U03-Infraestructura_fisica',
     folder: '3-infraestructura-fisica',
     label: 'Infraestructura física y despliegue del cableado de red',
   },
   {
-    code: 'U04',
+    code: 'U4',
     emoji: '🔀',
     slug: 'U04-Interconexion_conmutacion',
     folder: '4-interconexion-conmutacion',
     label: 'Interconexión, conmutación y verificación de redes locales cableadas',
   },
   {
-    code: 'U05',
+    code: 'U5',
     emoji: '🧮',
     slug: 'U05-TCP_IP_direccionamiento',
     folder: '5-tcp-ip-direccionamiento',
     label: 'Arquitecturas TCP/IP y direccionamiento IPv4/IPv6',
   },
   {
-    code: 'U06',
+    code: 'U6',
     emoji: '🏢',
     slug: 'U06-VLAN_WLAN',
     folder: '6-vlan-wlan',
     label: 'Segmentación y acceso a redes locales: VLAN y WLAN',
   },
   {
-    code: 'U07',
+    code: 'U7',
     emoji: '🧭',
     slug: 'U07-Encaminamiento_NAT_IoT',
     folder: '7-encaminamiento-nat-iot',
     label: 'Encaminamiento, NAT e introducción a IoT',
   },
   {
-    code: 'U08',
+    code: 'U8',
     emoji: '🩺',
     slug: 'U08-Mantenimiento_incidencias',
     folder: '8-mantenimiento-incidencias',
@@ -77,19 +77,7 @@ const unidades = [
   },*/
 ];
 
-/**
- * U01 ya dispone de una secuencia cerrada de 17 apartados de desarrollo.
- *
- * IMPORTANTE:
- * Los nombres siguientes reproducen la convención real de los archivos:
- *
- *   1-fundamentos/U01.01.Que_es_una_red_local.md
- *
- * Por tanto, aquí se usa exactamente la misma ruta, eliminando únicamente
- * la extensión `.md`.
- *
- * El resto de unidades se irá expandiendo cuando existan sus archivos.
- */
+
 const unidadesExpandidas = {
   'U01-Fundamentos': [
     {
@@ -204,7 +192,7 @@ export default defineConfig({
       title: 'Redes Locales',
 
       description:
-        'Apuntes de Redes Locales de 1.º SMR — 8 unidades de trabajo. Teoría explícita, práctica progresiva y diagnóstico. CC BY-SA 4.0 — Carlos Sanchez y Virginia Zornoza',
+        'Apuntes de Redes Locales de 1º SMR — 8 unidades de trabajo. Teoría explícita, práctica progresiva y diagnóstico. CC BY-SA 4.0 — Carlos Sanchez y Virginia Zornoza',
 
       customCss: [
         './src/styles/custom.css',

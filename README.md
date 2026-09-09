@@ -11,9 +11,9 @@
 
 ## 🌐 Web
 
-La versión web de los apuntes puede publicarse con **Astro + Starlight + GitHub Pages**.
+La versión web de los apuntes se ha publicado mediante **Astro + Starlight + GitHub Pages**.
 
-> La URL concreta dependerá del repositorio utilizado para esta versión de **Redes Locales de SMR**.
+> [https://carlossan3.github.io/SMR-Redes/](https://carlossan3.github.io/SMR-Redes/)
 
 ---
 
