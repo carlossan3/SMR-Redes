@@ -244,6 +244,15 @@ export default defineConfig({
           label: '📚 Unidades de trabajo',
           items: unidadesSidebar,
         },
+
+        {
+          tag: 'script',
+          attrs: {
+            // Utilizamos el widget de código abierto de Sinan Isler alojado en GitHub
+            src: 'https://cdn.jsdelivr.net/gh/sinanisler/accessibility-widgets@main/dist/widget.js',
+            defer: true,
+          },
+        },
       ],
     }),
 
