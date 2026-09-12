@@ -233,44 +233,37 @@ export default defineConfig({
             href: '/SMR-Redes/favicon.svg',
           },
         },
-// 👇 1. Cargamos el nuevo widget con iconos
+// 👇 Cargamos y encendemos el widget de forma moderna (ES Modules)
         {
           tag: 'script',
-          attrs: {
-            src: '/SMR-Redes/accessibility.min.js',
-            defer: true,
-          },
-        },
-        // 👇 2. Lo encendemos y lo traducimos al español
-        {
-          tag: 'script',
+          attrs: { type: 'module' },
           content: `
-            const initA11y = setInterval(() => {
-              if (typeof Accessibility !== "undefined") {
-                new Accessibility({
-                  labels: {
-                    resetTitle: 'Restablecer',
-                    closeTitle: 'Cerrar',
-                    menuTitle: 'Accesibilidad',
-                    increaseText: 'Aumentar texto',
-                    decreaseText: 'Disminuir texto',
-                    increaseTextSpacing: 'Aumentar espaciado',
-                    decreaseTextSpacing: 'Disminuir espaciado',
-                    increaseLineHeight: 'Aumentar interlineado',
-                    decreaseLineHeight: 'Disminuir interlineado',
-                    invertColors: 'Invertir colores',
-                    grayHues: 'Escala de grises',
-                    underlineLinks: 'Subrayar enlaces',
-                    bigCursor: 'Cursor grande',
-                    readingGuide: 'Guía de lectura',
-                    textToSpeech: 'Lector de pantalla',
-                    speechToText: 'Dictado por voz',
-                    disableAnimations: 'Detener animaciones'
-                  }
-                });
-                clearInterval(initA11y);
-              }
-            }, 100);
+            import AccessibilityModule from 'https://esm.sh/accessibility@3.1.1';
+            const AccessibilityWidget = AccessibilityModule.Accessibility || AccessibilityModule.default || AccessibilityModule;
+            
+            window.addEventListener('load', () => {
+              new AccessibilityWidget({
+                labels: {
+                  resetTitle: 'Restablecer',
+                  closeTitle: 'Cerrar',
+                  menuTitle: 'Accesibilidad',
+                  increaseText: 'Aumentar texto',
+                  decreaseText: 'Disminuir texto',
+                  increaseTextSpacing: 'Aumentar espaciado',
+                  decreaseTextSpacing: 'Disminuir espaciado',
+                  increaseLineHeight: 'Aumentar interlineado',
+                  decreaseLineHeight: 'Disminuir interlineado',
+                  invertColors: 'Invertir colores',
+                  grayHues: 'Escala de grises',
+                  underlineLinks: 'Subrayar enlaces',
+                  bigCursor: 'Cursor grande',
+                  readingGuide: 'Guía de lectura',
+                  textToSpeech: 'Lector de pantalla',
+                  speechToText: 'Dictado por voz',
+                  disableAnimations: 'Detener animaciones'
+                }
+              });
+            });
           `,
         },
       ],
