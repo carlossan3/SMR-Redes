@@ -233,13 +233,18 @@ export default defineConfig({
             href: '/SMR-Redes/favicon.svg',
           },
         },
+        // 👇 1. Descargamos el motor del widget de accesibilidad
         {
           tag: 'script',
           attrs: {
-            // Utilizamos el widget de código abierto de Sinan Isler alojado en GitHub
-            src: 'https://cdn.jsdelivr.net/gh/sinanisler/accessibility-widgets@main/dist/widget.js',
-            defer: true,
+            src: 'https://cdn.jsdelivr.net/npm/accessibility/dist/accessibility.min.js',
           },
+        },
+        // 👇 2. Le damos la orden de encenderse cuando la web cargue
+        {
+          tag: 'script',
+          content: 'window.addEventListener("load", function() { new Accessibility(); }, false);',
+        },
         },
       ],
 
