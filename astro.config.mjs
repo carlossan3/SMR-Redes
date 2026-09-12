@@ -209,6 +209,10 @@ export default defineConfig({
       defaultLocale: 'root',
       tableOfContents: false,
 
+      components: {
+        ThemeProvider: './src/components/Accesibilidad.astro',
+      },
+
       social: [
         {
           icon: 'github',
