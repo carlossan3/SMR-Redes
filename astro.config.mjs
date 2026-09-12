@@ -237,7 +237,7 @@ export default defineConfig({
         {
           tag: 'script',
           attrs: {
-            src: '/SMR-Redes/a11y-widget.js',
+            src: '/SMR-Redes/a11y-widget.min.js',
             defer: true,
           }
         },
