@@ -237,13 +237,9 @@ export default defineConfig({
         {
           tag: 'script',
           attrs: {
-            src: 'https://cdn.jsdelivr.net/gh/jerit-baiju/a11y-widget@latest/script.js',
-          },
-        },
-        // 👇 2. Encendido a prueba de fallos
-        {
-          tag: 'script',
-          content: 'const initA11y = setInterval(() => { if (typeof Accessibility !== "undefined") { new Accessibility(); clearInterval(initA11y); } }, 100);',
+            src: '/SMR-Redes/a11y-widget.js',
+            defer: true,
+          }
         },
       ],
 
