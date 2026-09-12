@@ -237,7 +237,7 @@ export default defineConfig({
         {
           tag: 'script',
           attrs: {
-            src: 'https://cdn.jsdelivr.net/npm/accessibility/dist/accessibility.min.js',
+            src: 'https://cdn.jsdelivr.net/gh/jerit-baiju/a11y-widget@latest/script.js',
           },
         },
         // 👇 2. Encendido a prueba de fallos
