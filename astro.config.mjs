@@ -240,10 +240,10 @@ export default defineConfig({
             src: 'https://cdn.jsdelivr.net/npm/accessibility/dist/accessibility.min.js',
           },
         },
-        // 👇 2. Le damos la orden de encenderse cuando la web cargue
+        // 👇 2. Encendido a prueba de fallos
         {
           tag: 'script',
-          content: 'window.addEventListener("load", function() { new Accessibility(); }, false);',
+          content: 'const initA11y = setInterval(() => { if (typeof Accessibility !== "undefined") { new Accessibility(); clearInterval(initA11y); } }, 100);',
         },
       ],
 
