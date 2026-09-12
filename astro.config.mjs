@@ -234,12 +234,7 @@ export default defineConfig({
           },
         },
 
-        // 👇 1. El "truco" para engañar al script y que no dé el error de "exports"
-        {
-          tag: 'script',
-          content: 'var module = { exports: {} }; var exports = module.exports;',
-        },
-        // 👇 2. Cargamos el widget DESDE TU CARPETA PUBLIC
+        // 👇 1. Cargamos el widget de forma natural y limpia
         {
           tag: 'script',
           attrs: {
@@ -247,14 +242,13 @@ export default defineConfig({
             defer: true,
           },
         },
-        // 👇 3. Lo encendemos leyendo la variable que hemos hackeado y lo traducimos
+        // 👇 2. Lo encendemos y lo traducimos
         {
           tag: 'script',
           content: `
             const initA11y = setInterval(() => {
-              if (exports.Accessibility || typeof Accessibility !== "undefined") {
-                const AccessibilityWidget = exports.Accessibility || exports.default || Accessibility;
-                new AccessibilityWidget({
+              if (typeof Accessibility !== "undefined") {
+                new Accessibility({
                   labels: {
                     resetTitle: 'Restablecer',
                     closeTitle: 'Cerrar',
