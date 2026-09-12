@@ -233,37 +233,51 @@ export default defineConfig({
             href: '/SMR-Redes/favicon.svg',
           },
         },
-// 👇 Cargamos y encendemos el widget de forma moderna (ES Modules)
+
+        // 👇 1. El "truco" para engañar al script y que no dé el error de "exports"
         {
           tag: 'script',
-          attrs: { type: 'module' },
+          content: 'var module = { exports: {} }; var exports = module.exports;',
+        },
+        // 👇 2. Cargamos el widget DESDE TU CARPETA PUBLIC
+        {
+          tag: 'script',
+          attrs: {
+            src: '/SMR-Redes/accessibility.min.js',
+            defer: true,
+          },
+        },
+        // 👇 3. Lo encendemos leyendo la variable que hemos hackeado y lo traducimos
+        {
+          tag: 'script',
           content: `
-            import AccessibilityModule from 'https://esm.sh/accessibility@3.1.1';
-            const AccessibilityWidget = AccessibilityModule.Accessibility || AccessibilityModule.default || AccessibilityModule;
-            
-            window.addEventListener('load', () => {
-              new AccessibilityWidget({
-                labels: {
-                  resetTitle: 'Restablecer',
-                  closeTitle: 'Cerrar',
-                  menuTitle: 'Accesibilidad',
-                  increaseText: 'Aumentar texto',
-                  decreaseText: 'Disminuir texto',
-                  increaseTextSpacing: 'Aumentar espaciado',
-                  decreaseTextSpacing: 'Disminuir espaciado',
-                  increaseLineHeight: 'Aumentar interlineado',
-                  decreaseLineHeight: 'Disminuir interlineado',
-                  invertColors: 'Invertir colores',
-                  grayHues: 'Escala de grises',
-                  underlineLinks: 'Subrayar enlaces',
-                  bigCursor: 'Cursor grande',
-                  readingGuide: 'Guía de lectura',
-                  textToSpeech: 'Lector de pantalla',
-                  speechToText: 'Dictado por voz',
-                  disableAnimations: 'Detener animaciones'
-                }
-              });
-            });
+            const initA11y = setInterval(() => {
+              if (exports.Accessibility || typeof Accessibility !== "undefined") {
+                const AccessibilityWidget = exports.Accessibility || exports.default || Accessibility;
+                new AccessibilityWidget({
+                  labels: {
+                    resetTitle: 'Restablecer',
+                    closeTitle: 'Cerrar',
+                    menuTitle: 'Accesibilidad',
+                    increaseText: 'Aumentar texto',
+                    decreaseText: 'Disminuir texto',
+                    increaseTextSpacing: 'Aumentar espaciado',
+                    decreaseTextSpacing: 'Disminuir espaciado',
+                    increaseLineHeight: 'Aumentar interlineado',
+                    decreaseLineHeight: 'Disminuir interlineado',
+                    invertColors: 'Invertir colores',
+                    grayHues: 'Escala de grises',
+                    underlineLinks: 'Subrayar enlaces',
+                    bigCursor: 'Cursor grande',
+                    readingGuide: 'Guía de lectura',
+                    textToSpeech: 'Lector de pantalla',
+                    speechToText: 'Dictado por voz',
+                    disableAnimations: 'Detener animaciones'
+                  }
+                });
+                clearInterval(initA11y);
+              }
+            }, 100);
           `,
         },
       ],
