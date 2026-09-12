@@ -245,7 +245,6 @@ export default defineConfig({
           tag: 'script',
           content: 'window.addEventListener("load", function() { new Accessibility(); }, false);',
         },
-        },
       ],
 
       sidebar: [
