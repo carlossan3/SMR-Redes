@@ -12,15 +12,8 @@ description: "Apuntes de Redes Locales de SMR1 — 8 unidades de trabajo. Teorí
 </div>
 
 <div align="center" style="margin-bottom:2rem;">
-  <a
-    href="/SMR-Redes/U01-Fundamentos"
-    style="display:inline-block;padding:0.75rem 2rem;background:linear-gradient(135deg,#2563eb,#1a4060);color:#fff;border-radius:8px;text-decoration:none;font-weight:600;margin:0.25rem 0.5rem;"
-  >🌐 Empezar por la U01</a>
-
-  <a
-    href="https://github.com/carlossan3/SMR-Redes"
-    style="display:inline-block;padding:0.75rem 2rem;background:var(--sl-color-gray-5);color:var(--sl-color-white);border-radius:8px;text-decoration:none;font-weight:600;margin:0.25rem 0.5rem;"
-  >🐙 Ver en GitHub</a>
+  <a href="/SMR-Redes/U01-Fundamentos" style="display:inline-block;padding:0.75rem 2rem;background:linear-gradient(135deg,#2563eb,#1a4060);color:#fff;border-radius:8px;text-decoration:none;font-weight:600;margin:0.25rem 0.5rem;">🌐 Empezar por la U01</a>
+  <a href="https://github.com/carlossan3/SMR-Redes" style="display:inline-block;padding:0.75rem 2rem;background:var(--sl-color-gray-5);color:var(--sl-color-white);border-radius:8px;text-decoration:none;font-weight:600;margin:0.25rem 0.5rem;">🐙 Ver en GitHub</a>
 </div>
 
 <div align="center">
