@@ -2,8 +2,6 @@
 title: "U02 — Prevención de riesgos y protección ambiental en redes"
 ---
 
-# U02 — Prevención de riesgos y protección ambiental en redes
-
 **Módulo:** Redes Locales  
 **Resultado de aprendizaje:** RA6 — Cumple las normas de prevención de riesgos laborales y de protección ambiental, identificando los riesgos asociados, las medidas y equipos para prevenirlos.
 

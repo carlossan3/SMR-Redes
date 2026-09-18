@@ -10,7 +10,7 @@ export default defineConfig({
       title: 'Redes Locales',
 
       description:
-        'Apuntes de Redes Locales de 1º SMR',
+        'Apuntes de Redes Locales de 1.º SMR',
 
       locales: {
         root: {
@@ -20,8 +20,11 @@ export default defineConfig({
       },
 
       defaultLocale: 'root',
-
       tableOfContents: false,
+
+      components: {
+        ThemeProvider: './src/components/Accesibilidad.astro',
+      },
     }),
   ],
 });

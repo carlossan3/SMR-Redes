@@ -15,8 +15,6 @@ El curso comienza con los fundamentos de las redes y avanza progresivamente haci
 
 ---
 
-## 🗺️ El recorrido del curso
-
 ## 🗺️ Recorrido del curso
 
 ### 1.ª evaluación

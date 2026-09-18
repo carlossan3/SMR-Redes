@@ -2,8 +2,6 @@
 title: "U03 — Infraestructura física y despliegue del cableado de red"
 ---
 
-# U03 — Infraestructura física y despliegue del cableado de red
-
 **Módulo:** Redes Locales  
 **Resultado de aprendizaje:** RA2 — Despliega el cableado de una red local interpretando especificaciones y aplicando técnicas de montaje.
 
