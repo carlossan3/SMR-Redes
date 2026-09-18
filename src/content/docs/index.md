@@ -1,18 +1,14 @@
 ---
-
 title: "Inicio"
-description: "Apuntes de Redes Locales de 1.º de SMR — 8 unidades de trabajo y 178 horas. Teoría, práctica progresiva, montaje, configuración y diagnóstico de redes. CC BY-SA 4.0 — Carlos Sanchez y Virginia Zornoza."
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+description: "Apuntes de Redes Locales de 1.º de SMR — 8 unidades de trabajo. CC BY-SA 4.0 — Carlos Sanchez y Virginia Zornoza."
+---
 
 <div align="center">
-
-<img
-src="/SMR-Redes/portada.png"
-alt="Redes Locales — 1.º SMR. Apuntes de redes, montaje, configuración y resolución de incidencias."
-style="max-width:100%;height:auto;border-radius:12px;margin:0 0 1.5rem;box-shadow:0 8px 40px rgba(0,0,0,0.15);"
-
->
-
+  <img
+    src="/SMR-Redes/portada.png"
+    alt="Redes Locales — 1.º SMR. Apuntes de redes, montaje, configuración y resolución de incidencias."
+    style="max-width:100%;height:auto;border-radius:12px;margin:0 0 1.5rem;box-shadow:0 8px 40px rgba(0,0,0,0.15);"
+  >
 </div>
 
 <div align="center" style="margin-bottom:2rem;">
@@ -113,7 +109,7 @@ U08  🩺 Mantenimiento e incidencias · RA5
     <span class="ra">RA1 · 20 h</span>
   </div>
 
-  <a href="./U01-Fundamentos/" class="title-link">
+  <a href="./U01-fundamentos/" class="title-link">
     Fundamentos de redes
   </a>
 
@@ -121,7 +117,7 @@ U08  🩺 Mantenimiento e incidencias · RA5
     La red que existe aunque Internet no funcione 🌐 — Concepto de red, componentes, clasificación, topologías, dispositivos, medios, protocolos y representación.
   </p>
 
-<a href="./U01-Fundamentos/" class="unit-link">👉 Empezar por aquí 👈</a>
+<a href="./U01-fundamentos/" class="unit-link">👉 Empezar por aquí 👈</a>
 
 </div>
 
@@ -132,7 +128,7 @@ U08  🩺 Mantenimiento e incidencias · RA5
     <span class="ra">RA6 · 8 h</span>
   </div>
 
-  <a href="./U02-Prevencion/" class="title-link">
+  <a href="./U02-prevencion/" class="title-link">
     Prevención de riesgos y protección ambiental en redes
   </a>
 
@@ -140,7 +136,7 @@ U08  🩺 Mantenimiento e incidencias · RA5
     Que la incidencia no seas tú 🦺 — Riesgos, herramientas, protección personal, trabajo seguro, orden, limpieza y gestión de residuos.
   </p>
 
-<a href="./U02-Prevencion/" class="unit-link">👉 Ver unidad 👈</a>
+<a href="./U02-prevencion/" class="unit-link">👉 Ver unidad 👈</a>
 
 </div>
 
@@ -151,7 +147,7 @@ U08  🩺 Mantenimiento e incidencias · RA5
     <span class="ra">RA2 · 22 h</span>
   </div>
 
-  <a href="./U03-Infraestructura_fisica/" class="title-link">
+  <a href="./U03-infraestructura_fisica/" class="title-link">
     Infraestructura física y despliegue del cableado de red
   </a>
 
@@ -159,7 +155,7 @@ U08  🩺 Mantenimiento e incidencias · RA5
     El cable traicionero 🔌 — Cobre, fibra, cableado estructurado, racks, patch panels, canalizaciones, T568A/B, crimpado, etiquetado y verificación.
   </p>
 
-<a href="./U03-Infraestructura_fisica/" class="unit-link">👉 Ver unidad 👈</a>
+<a href="./U03-infraestructura_fisica/" class="unit-link">👉 Ver unidad 👈</a>
 
 </div>
 
@@ -170,7 +166,7 @@ U08  🩺 Mantenimiento e incidencias · RA5
     <span class="ra">RA3 · 28 h</span>
   </div>
 
-  <a href="./U04-Interconexion_conmutacion/" class="title-link">
+  <a href="./U04-interconexion_conmutacion/" class="title-link">
     Interconexión, conmutación y verificación de redes locales cableadas
   </a>
 
@@ -178,7 +174,7 @@ U08  🩺 Mantenimiento e incidencias · RA5
     Cómo circulan las tramas 🔀 — NIC, Ethernet, direcciones MAC, switches, tablas MAC, flooding, varios switches y verificación de conectividad.
   </p>
 
-<a href="./U04-Interconexion_conmutacion/" class="unit-link">👉 Ver unidad 👈</a>
+<a href="./U04-interconexion_conmutacion/" class="unit-link">👉 Ver unidad 👈</a>
 
 </div>
 
@@ -227,7 +223,7 @@ U08  🩺 Mantenimiento e incidencias · RA5
     <span class="ra">RA4 · 16 h</span>
   </div>
 
-  <a href="./U07-Encaminamiento_NAT_IoT/" class="title-link">
+  <a href="./U07-encaminamiento_NAT_IoT/" class="title-link">
     Encaminamiento, NAT e introducción a IoT
   </a>
 
@@ -235,7 +231,7 @@ U08  🩺 Mantenimiento e incidencias · RA5
     Cómo salir de tu red sin perderte 🧭 — Router, tabla de rutas, rutas estáticas, ruta por defecto, NAT/PAT e introducción a IoT.
   </p>
 
-<a href="./U07-Encaminamiento_NAT_IoT/" class="unit-link">👉 Ver unidad 👈</a>
+<a href="./U07-encaminamiento_NAT_IoT/" class="unit-link">👉 Ver unidad 👈</a>
 
 </div>
 
@@ -246,7 +242,7 @@ U08  🩺 Mantenimiento e incidencias · RA5
     <span class="ra">RA5 · 40 h</span>
   </div>
 
-  <a href="./U08-Mantenimiento_incidencias/" class="title-link">
+  <a href="./U08-mantenimiento_incidencias/" class="title-link">
     Mantenimiento y resolución de incidencias en redes locales
   </a>
 
@@ -254,7 +250,7 @@ U08  🩺 Mantenimiento e incidencias · RA5
     “Apágalo y vuelve a encenderlo” no es un método 🩺 — Diagnóstico, herramientas de red, monitorización, análisis de tráfico, mantenimiento y documentación técnica.
   </p>
 
-<a href="./U08-Mantenimiento_incidencias/" class="unit-link">👉 Ver unidad 👈</a>
+<a href="./U08-mantenimiento_incidencias/" class="unit-link">👉 Ver unidad 👈</a>
 
 </div>
 
