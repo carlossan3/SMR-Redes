@@ -1,9 +1,5 @@
 ---
-title: "U02-Prevencion"
-module: "Sistemas Microinformáticos y Redes"
-course: "1.º SMR"
-unit: "U01 — Fundamentos y arquitectura de redes"
-version: "2026-2027"
+title: "U02 — Prevención de riesgos y protección ambiental en redes"
 ---
 
 # U02 — Prevención de riesgos y protección ambiental en redes
