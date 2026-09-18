@@ -21,29 +21,7 @@ export default defineConfig({
 
       defaultLocale: 'root',
 
-      sidebar: [
-        {
-          slug: 'index',
-          label: '🏠 Inicio',
-        },
-        {
-          label: '📚 Unidades de trabajo',
-          items: [
-            {
-              slug: 'U01-Fundamentos',
-              label: '🌐 U1 · Fundamentos de redes',
-            },
-            {
-              slug: 'U02-Prevencion',
-              label: '🦺 U2 · Prevención de riesgos',
-            },
-            {
-              slug: 'U03-Infraestructura_fisica',
-              label: '🔌 U3 · Infraestructura física',
-            },
-          ],
-        },
-      ],
+      tableOfContents: false,
     }),
   ],
 });
