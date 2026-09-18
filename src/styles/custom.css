@@ -359,6 +359,23 @@
 ::-webkit-scrollbar-thumb { background: var(--sl-color-accent); border-radius: 20px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--sl-color-accent-high); }
 
+/* === TAMAÑO DE TÍTULOS EN LOS APUNTES === */
+
+.sl-markdown-content h1 {
+  font-size: 1.9rem !important;
+  line-height: 1.2;
+}
+
+.sl-markdown-content h2 {
+  font-size: 1.45rem !important;
+  line-height: 1.25;
+}
+
+.sl-markdown-content h3 {
+  font-size: 1.2rem !important;
+  line-height: 1.3;
+}
+
 /* === MODO OSCURO === */
 :root[data-theme="dark"] {
   --sl-color-bg-nav: rgba(10, 20, 30, 0.92);
@@ -384,4 +401,26 @@
 }
 :root[data-theme="dark"] .home-page .hero {
   background: linear-gradient(135deg, #040c15 0%, #0a1e30 40%, #1a4060 100%) !important;
+}
+
+:root[data-theme="dark"] {
+  --_access-menu-background-color: #111827;
+
+  --_access-menu-item-button-background: #1f2937;
+
+  --_access-menu-item-color: #f9fafb;
+  --_access-menu-header-color: #f9fafb;
+
+  --_access-menu-item-icon-color: #f9fafb;
+
+  --_access-menu-item-button-hover-color: #ffffff;
+  --_access-menu-item-button-hover-background-color: #2563eb;
+
+  --_access-menu-item-hover-icon-color: #ffffff;
+
+  --_access-menu-item-button-active-color: #ffffff;
+  --_access-menu-item-button-active-background-color: #2563eb;
+
+  --_access-menu-item-active-icon-color: #ffffff;
+  --_access-menu-div-active-background-color: #2563eb;
 }
