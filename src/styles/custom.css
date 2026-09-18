@@ -362,12 +362,12 @@
 /* === TAMAÑO DE TÍTULOS EN LOS APUNTES === */
 
 .sl-markdown-content h1 {
-  font-size: 1.9rem !important;
+  font-size: 1.8rem !important;
   line-height: 1.2;
 }
 
 .sl-markdown-content h2 {
-  font-size: 1.45rem !important;
+  font-size: 1.4rem !important;
   line-height: 1.25;
 }
 
