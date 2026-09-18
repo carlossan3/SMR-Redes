@@ -26,7 +26,7 @@ const unidades = [
     folder: '1-fundamentos',
     label: 'Fundamentos de redes',
   },
-  /*{
+  {
     code: 'U2',
     emoji: '🦺',
     slug: 'U02-Prevencion',
@@ -40,7 +40,7 @@ const unidades = [
     folder: '3-infraestructura-fisica',
     label: 'Infraestructura física y despliegue del cableado de red',
   },
-  {
+  /*{
     code: 'U4',
     emoji: '🔀',
     slug: 'U04-Interconexion_conmutacion',
@@ -77,7 +77,7 @@ const unidades = [
   },*/
 ];
 
-
+/*
 const unidadesExpandidas = {
   'U01-Fundamentos': [
     {
@@ -149,7 +149,7 @@ const unidadesExpandidas = {
       label: '17 · Caso integrador: comprender y representar una LAN',
     },
   ],
-};
+};*/
 
 /**
  * Generación del sidebar.

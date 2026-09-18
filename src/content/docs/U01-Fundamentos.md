@@ -1,705 +1,1234 @@
----
-title: U1 — Fundamentos de redes
-slug: U01-Fundamentos
-description: Entender una LAN antes de empezar a configurarla 🌐
----
+# U01 — Fundamentos de redes
 
-<!-- # U01 — Fundamentos de redes -->
-
-> 🗺️ **Ruta del curso:** 🌐 **AQUÍ ESTÁS — U01 Fundamentos** → 🦺 U02 Riesgos → 🔌 U03 Medios → 🧰 U04 Despliegue → 🖧 U05 Interconexión → 🔀 U06 Conmutación → 🧮 U07 IPv4 → 🚀 U08 IPv6 → 🏢 U09 VLAN → 📡 U10 WLAN → 🧭 U11 Routing y NAT → 🩺 U12 Diagnóstico → 📈 U13 Monitorización → 🗂️ U14 Mantenimiento
-
-Esta unidad es el punto de partida. Antes de calcular direcciones, configurar switches o buscar averías, necesitas construir una imagen mental clara de **qué es una red local, qué elementos la forman, cómo se organizan y cómo representarla**.
-
-La idea es sencilla: primero entender el mapa; después aprenderemos a conducir por él.
+**Módulo:** Redes Locales  
+**Ciclo:** 1.º de Sistemas Microinformáticos y Redes  
+**Resultado de aprendizaje asociado:** RA1 — Reconoce la estructura de redes locales cableadas analizando las características de entornos de aplicación y describiendo la funcionalidad de sus componentes.
 
 ---
 
-## 1. 📚 Contenidos
+# 1. La red local
 
-La unidad se desarrolla mediante los siguientes apartados:
+## 1.1. Qué es una red
 
-1. `U01.01.Que_es_una_red_local.md` — **Qué es una red local**
-2. `U01.02.Componentes_basicos_de_una_red.md` — **Componentes básicos de una red**
-3. `U01.03.Tipos_de_red_y_alcance.md` — **Tipos de red y alcance**
-4. `U01.04.Otras_formas_de_clasificar_una_red.md` — **Otras formas de clasificar una red**
-5. `U01.05.Cliente_servidor_y_P2P.md` — **Cliente-servidor y P2P**
-6. `U01.06.Topologia_fisica_y_logica.md` — **Topología física y lógica**
-7. `U01.07.Estrella_bus_y_anillo.md` — **Estrella, bus y anillo**
-8. `U01.08.Arbol_malla_e_hibridas.md` — **Árbol, malla e híbridas**
-9. `U01.09.Dispositivos_finales_e_intermedios.md` — **Dispositivos finales e intermedios**
-10. `U01.10.Switch_router_y_punto_de_acceso.md` — **Switch, router y punto de acceso**
-11. `U01.11.Medios_de_transmision_primera_aproximacion.md` — **Medios de transmisión: primera aproximación**
-12. `U01.12.Introduccion_practica_a_Cisco_Packet_Tracer.md` — **Introducción práctica a Cisco Packet Tracer**
-13. `U01.13.Comunicacion_y_protocolos_como_viaja_la_informacion.md` — **Comunicación y protocolos: cómo viaja la información**
-14. `U01.14.Modelos_OSI_y_TCP_IP_para_que_sirven.md` — **Modelos OSI y TCP/IP: para qué sirven**
-15. `U01.15.MAC_IP_nombre_e_interfaz_identificadores_diferentes.md` — **MAC, IP, nombre e interfaz: identificadores diferentes**
-16. `U01.16.Mapas_y_representacion_de_una_LAN.md` — **Mapas y representación de una LAN**
-17. `U01.17.Caso_integrador_comprender_y_representar_una_LAN.md` — **Caso integrador: comprender y representar una LAN**
+Una **red de ordenadores** es un conjunto de dispositivos capaces de intercambiar información y utilizar recursos o servicios comunes mediante unos medios de transmisión y unas reglas de comunicación compartidas.
 
-> 📌 **Idea de fondo:** no tienes que memorizar una colección de siglas. Debes terminar siendo capaz de mirar una red sencilla y explicar **qué hay, cómo está conectado, para qué sirve cada elemento y cómo representarías esa red para que otra persona la entienda**.
+Una red no es únicamente un conjunto de cables ni un único dispositivo como un router. Para que exista comunicación en red intervienen varios elementos:
 
----
+- dispositivos que originan, reciben o utilizan información;
+- interfaces que permiten a esos dispositivos conectarse;
+- medios por los que se transmiten las señales;
+- dispositivos que interconectan equipos o redes;
+- reglas que permiten organizar e interpretar la comunicación.
 
-## 2. ⭐ Sé el Paquete
+Por tanto, una red debe entenderse como un **sistema formado por elementos que colaboran**.
 
-> Un PC del aula quiere enviar un documento a una impresora de red situada en la misma LAN. Los dos equipos están conectados por cable al mismo switch. También existe un router que comunica la LAN con otras redes.
+## 1.2. Para qué se utilizan las redes
 
-### Primera decisión: ¿qué recorrido tiene más sentido?
+Las redes permiten ampliar las posibilidades de los equipos aislados.
 
-1. `PC → switch → impresora`
-2. `PC → router → Internet → router → impresora`
-3. `PC → punto de acceso → switch → impresora`
-4. `PC → impresora`, ignorando completamente los dispositivos de interconexión
+Entre sus usos más habituales se encuentran:
 
-<details>
-<summary>🔄 Solución</summary>
+- **intercambiar información**, como documentos, imágenes, mensajes o copias de seguridad;
+- **compartir recursos**, como impresoras, almacenamiento o conexiones hacia otras redes;
+- **utilizar servicios**, como páginas web, servidores de archivos o aplicaciones alojadas en otros equipos;
+- **comunicarse**, mediante mensajería, correo, videoconferencia o aplicaciones en red;
+- **centralizar recursos y administración**, especialmente en centros educativos y empresas;
+- **facilitar el acceso conjunto a información y servicios** desde diferentes dispositivos.
 
-La opción correcta es la **1: `PC → switch → impresora`**.
+Una red no necesita estar conectada a Internet para funcionar. Dos o más dispositivos pueden comunicarse dentro de una red local aunque no exista conexión con redes externas.
 
-Los dos dispositivos pertenecen a la misma red local y están conectados al mismo switch. El switch es el dispositivo encargado de facilitar la comunicación entre equipos de esa LAN.
+## 1.3. Qué es una LAN
 
-El router será necesario cuando el destino esté **en otra red**.
+Una **LAN** (*Local Area Network*) es una red que cubre un ámbito geográfico limitado y que normalmente está gestionada por una misma persona u organización.
 
-</details>
+Son ejemplos habituales:
 
-### Segunda decisión: ahora el PC quiere acceder a un servidor que está fuera de la LAN
+- la red de una vivienda;
+- la red de un aula;
+- la red de una oficina;
+- la red de una biblioteca;
+- la red de una pequeña empresa;
+- la red interna de un edificio.
 
-¿Qué recorrido representa mejor la idea general?
+En una LAN pueden coexistir equipos cableados, dispositivos inalámbricos, servidores, impresoras y distintos dispositivos de interconexión.
 
-1. `PC → switch → router → otra red`
-2. `PC → switch → impresora → otra red`
-3. `PC → router`, aunque el PC no esté conectado a ningún medio
-4. `PC → Internet`, porque Internet está dentro del ordenador
+## 1.4. LAN e Internet no son lo mismo
 
-<details>
-<summary>🔄 Solución</summary>
+Una **LAN** conecta dispositivos dentro de un ámbito local.
 
-La opción correcta es la **1: `PC → switch → router → otra red`**.
+**Internet**, en cambio, es una gran interconexión mundial de redes.
 
-El switch organiza la comunicación dentro de la LAN. El router conecta esa LAN con otras redes.
+Un equipo puede:
 
-Todavía no necesitas saber cómo toma todas sus decisiones el router. Esa parte llegará más adelante. Por ahora basta con que distingas claramente **qué papel desempeña cada dispositivo**.
+- estar correctamente conectado a su LAN;
+- comunicarse con otros dispositivos locales;
+- utilizar una impresora o un servidor interno;
 
-</details>
+y, al mismo tiempo, no disponer de acceso a Internet.
+
+La comunicación local y el acceso a Internet son, por tanto, conceptos diferentes.
 
 ---
 
-## 3. 🔥 Fireside Chat — Switch vs router
+# 2. Clasificación de las redes
 
-> *Dos equipos del armario de comunicaciones discuten sobre quién manda realmente en la red.*
+Una misma red puede describirse desde distintos puntos de vista. Las clasificaciones no se excluyen entre sí: una red puede ser, por ejemplo, una LAN, privada, mixta y predominantemente cliente-servidor al mismo tiempo.
 
-**Switch:** — Yo conecto los equipos de la LAN. Sin mí, tus ordenadores tendrían muchos planes, pero pocas conversaciones.
+## 2.1. Clasificación según el alcance
 
-**Router:** — Muy bien. Y cuando quieran salir de esa LAN, ¿qué haces?
+El **alcance** indica la extensión geográfica aproximada cubierta por la red.
 
-**Switch:** — Te los paso a ti. Eso no te convierte en protagonista de todas las escenas.
+| Tipo | Nombre | Ámbito habitual | Ejemplo |
+|---|---|---|---|
+| **PAN** | Personal Area Network | Entorno inmediato de una persona | Móvil y reloj inteligente |
+| **LAN** | Local Area Network | Habitación, vivienda, aula, oficina o edificio | Red de un aula |
+| **WLAN** | Wireless Local Area Network | Ámbito local con acceso inalámbrico | Wi-Fi de una biblioteca |
+| **CAN** | Campus Area Network | Varios edificios próximos de una organización | Campus educativo |
+| **MAN** | Metropolitan Area Network | Zona urbana o metropolitana | Red que conecta ubicaciones dentro de una ciudad |
+| **WAN** | Wide Area Network | Grandes distancias | Red entre sedes de diferentes ciudades |
 
-**Router:** — Yo conecto redes distintas.
+Estas categorías son referencias útiles, no fronteras matemáticas exactas.
 
-**Switch:** — Y yo conecto dispositivos dentro de una red. Son trabajos diferentes.
+El número de dispositivos tampoco determina por sí solo el tipo de red. Una LAN puede tener muchos equipos dentro de un único edificio, mientras que una WAN puede conectar pocas sedes separadas por grandes distancias.
 
-**Router:** — También puedo llevarlos a Internet.
+### WLAN
 
-**Switch:** — Sí, pero deja de decir «Internet» como si fuera una habilidad mágica. Primero existe una LAN, luego alguien decide cómo conectarla con otras redes.
+Una **WLAN** es una red local que utiliza tecnologías inalámbricas para proporcionar conectividad a los dispositivos.
 
-**Router:** — Admito que, para una vez, tienes razón.
+No debe entenderse como una categoría opuesta a LAN:
 
-**Switch:** — ¿Puedes repetirlo? Quiero guardarlo en la tabla MAC.
+> una WLAN es una LAN con acceso inalámbrico.
 
-**Router:** — No abuses.
+## 2.2. Clasificación según el medio de transmisión
 
-### Qué debes sacar de la discusión
+Según la forma en que se transmiten las señales, una red puede ser:
 
-- Un **switch** conecta equipos dentro de una LAN.
-- Un **router** conecta redes diferentes.
-- No son dos nombres para el mismo aparato.
-- Un equipo doméstico puede integrar varias funciones en una sola caja, pero las **funciones siguen siendo distintas**.
+### Red cableada
 
----
+Utiliza medios físicos guiados, como:
 
-## 4. 🕵️ ¿Quién Soy?
+- cable de cobre;
+- fibra óptica.
 
-### Adivinanza 1
+### Red inalámbrica
 
-Tengo teclado, pantalla y tarjeta de red. Soy quien utiliza realmente los servicios de la red.
+Utiliza ondas electromagnéticas para transmitir información sin un cable físico hasta cada dispositivo.
 
-<details>
-<summary>🔄 Respuesta</summary>
+Wi-Fi es una tecnología habitual para construir redes locales inalámbricas y utiliza **radio** como medio de transmisión.
 
-**Dispositivo final o host.** Puede ser un PC, un portátil, un servidor, una impresora de red, un móvil u otro equipo que origine o reciba información.
+### Red mixta
 
-</details>
+Combina enlaces cableados e inalámbricos.
 
-### Adivinanza 2
+Es una situación muy habitual en viviendas, centros educativos y empresas: los ordenadores fijos, servidores o switches pueden utilizar cable, mientras que portátiles y dispositivos móviles acceden mediante Wi-Fi.
 
-Tengo muchos puertos. Conecto equipos de una misma LAN y soy el centro habitual de una topología en estrella.
+## 2.3. Clasificación según el acceso
 
-<details>
-<summary>🔄 Respuesta</summary>
+### Red privada
 
-**Switch.**
+Pertenece a una persona u organización y su acceso está controlado.
 
-</details>
+Es el modelo habitual de la red interna de:
 
-### Adivinanza 3
+- un centro educativo;
+- una empresa;
+- una administración;
+- una vivienda.
 
-No soy Internet. Mi trabajo es comunicar redes distintas y decidir hacia dónde debe continuar el tráfico.
+### Red de acceso público
 
-<details>
-<summary>🔄 Respuesta</summary>
+Permite el acceso a personas que no forman parte necesariamente de la organización que mantiene la infraestructura.
 
-**Router.**
+Una red pública no significa que todos sus recursos internos deban quedar accesibles sin restricciones. El acceso a la conectividad y el acceso a los recursos son cuestiones diferentes.
 
-</details>
+## 2.4. Intranet, extranet e Internet
 
-### Adivinanza 4
+### Intranet
 
-Uno el mundo cableado con dispositivos que se conectan por radio. Los móviles y portátiles me buscan por el aire.
+Una **intranet** es un conjunto de recursos y servicios de red destinados al uso interno de una organización.
 
-<details>
-<summary>🔄 Respuesta</summary>
+Puede incluir, por ejemplo:
 
-**Punto de acceso inalámbrico (AP).**
+- documentación interna;
+- aplicaciones de gestión;
+- servidores de archivos;
+- páginas web internas.
 
-</details>
+### Extranet
 
-### Adivinanza 5
+Una **extranet** permite ofrecer determinados recursos internos a usuarios externos autorizados, como proveedores, colaboradores o clientes.
 
-No soy un dispositivo. Soy el camino por el que se transmite la información: puedo ser cobre, fibra o radio.
+### Internet
 
-<details>
-<summary>🔄 Respuesta</summary>
-
-**Medio de transmisión.**
-
-</details>
-
-### Adivinanza 6
-
-Puedo mostrar cables y puertos reales o representar cómo se organiza lógicamente la comunicación. Soy el plano de la red.
-
-<details>
-<summary>🔄 Respuesta</summary>
-
-**Topología o representación de red**, según el contexto. Conviene distinguir siempre entre **topología física** y **topología lógica**.
-
-</details>
+Internet conecta redes de muy diferentes organizaciones a escala mundial.
 
 ---
 
-## 5. 🤬 CONRAD VS EL MUNDO — «Da igual dónde conecte el cable»
+# 3. Cliente-servidor y P2P
 
-> *CONRAD, switch profesional, paciente cero.*
+Además de clasificar una red por alcance o por medio, podemos observar cómo se organizan los servicios entre los equipos.
 
-**Alumno:** — Conrad, he conectado el PC. El conector ha entrado, así que debería funcionar.
+## 3.1. Cliente
 
-**CONRAD:** — Fascinante teoría. Según eso, si una llave entra en un agujero ya tenemos una cerradura.
+Un **cliente** es un dispositivo o programa que solicita un servicio o recurso.
 
-**Alumno:** — Pero es un cable de red.
+Por ejemplo:
 
-**CONRAD:** — Sí. Y yo soy un switch, no un perchero con puertos. **Importa qué dispositivo conectas, a qué elemento lo conectas y qué función tiene cada uno.**
+- un navegador que solicita una página;
+- un PC que abre un archivo almacenado en un servidor;
+- un equipo que envía un documento a una impresora de red;
+- una aplicación que consulta información en otro sistema.
 
-**Alumno:** — He conectado un PC a una interfaz del router en vez de al switch.
+La palabra *cliente* describe el papel realizado durante una comunicación. No identifica necesariamente un tipo concreto de ordenador.
 
-**CONRAD:** — Ahí lo tienes. Querías incorporar un equipo a la LAN y has decidido saltarte el dispositivo que precisamente conecta los equipos de la LAN. Creativo, sí. Correcto, no.
+## 3.2. Servidor
 
-**Alumno:** — Entonces, ¿primero pienso la topología y luego conecto?
+Un **servidor** es un dispositivo o programa que ofrece un servicio o recurso a otros sistemas.
 
-**CONRAD:** — Exacto. **Dibuja, identifica, conecta y comprueba.** En ese orden. Ya estás peligrosamente cerca de trabajar como un técnico.
+Puede proporcionar:
 
-### La lección
+- archivos;
+- páginas web;
+- impresión;
+- autenticación;
+- almacenamiento;
+- aplicaciones;
+- otros servicios de red.
 
-Un cable conectado físicamente no garantiza que la red esté **bien diseñada**.
+En muchas organizaciones existen equipos preparados específicamente para prestar servicios de forma continua, pero lo importante es distinguir la **función** de servidor.
 
-Antes de conectar:
-
-1. identifica el tipo de dispositivo;
-2. decide qué papel debe desempeñar;
-3. comprueba a qué elemento debe conectarse;
-4. representa la topología;
-5. verifica después que el resultado coincide con el diseño.
-
----
-
-## 6. ⚡ Laboratorio de tortura — La LAN del aula que «casi» está bien
-
-> **Herramienta:** Cisco Packet Tracer  
-> **Objetivo:** reconocer los elementos de una LAN, interpretar su topología, corregir un error de conexionado y justificar la solución.
-
-### Escenario
-
-Una pequeña aula dispone de:
-
-- 3 PC: `PC-A`, `PC-B` y `PC-C`;
-- 1 impresora de red;
-- 1 switch;
-- 1 router que representa la salida hacia otras redes.
-
-La red prevista es:
+Una comunicación cliente-servidor puede representarse de forma sencilla:
 
 ```text
-                         [Router]
-                            |
-                         [Switch]
-                    /      |      |      \
-                 PC-A    PC-B   PC-C   Impresora
+CLIENTE  ─── solicitud ───>  SERVIDOR
+CLIENTE  <── respuesta ────  SERVIDOR
 ```
 
-Todos los dispositivos finales de la LAN deben quedar conectados al **switch**.
+## 3.3. Arquitectura cliente-servidor
 
-### Configuración proporcionada
+En una arquitectura **cliente-servidor**, determinados sistemas ofrecen servicios y otros los solicitan.
 
-No tienes que calcular direcciones. Utiliza estos valores tal como aparecen:
+Entre sus ventajas habituales se encuentran:
 
-| Equipo | Dirección IPv4 | Máscara |
+- administración más centralizada;
+- mayor facilidad para organizar recursos;
+- control de acceso más coherente;
+- mejor capacidad para gestionar un número elevado de usuarios;
+- ubicación conocida de los servicios principales.
+
+También implica necesidades adicionales:
+
+- administración de los servidores;
+- mantenimiento;
+- seguridad;
+- planificación de la disponibilidad;
+- dependencia de determinados servicios centrales.
+
+El fallo de un servidor no implica necesariamente que toda la red deje de funcionar. Dependerá del servicio que prestaba y del diseño de la infraestructura.
+
+## 3.4. P2P
+
+**P2P** significa *peer-to-peer*, es decir, comunicación **entre iguales**.
+
+En este modelo los equipos pueden compartir recursos directamente sin depender necesariamente de un servidor dedicado.
+
+```text
+PC-A  <──── recurso compartido ────>  PC-B
+```
+
+Un mismo equipo puede solicitar un recurso en una comunicación y ofrecer otro en una comunicación diferente.
+
+Por ello:
+
+> cliente y servidor son papeles dentro de un servicio, no categorías permanentes de una máquina.
+
+P2P puede resultar útil para necesidades pequeñas o temporales, pero su administración se complica cuando aumentan el número de equipos y los recursos compartidos.
+
+## 3.5. Redes con modelos combinados
+
+Una red real puede utilizar ambos modelos.
+
+Por ejemplo, en un centro educativo:
+
+- el alumnado puede acceder a documentos almacenados en un servidor;
+- los usuarios pueden autenticarse contra servicios centralizados;
+- dos equipos pueden compartir de forma puntual un recurso directamente.
+
+La red no necesita encajar de forma absoluta en una única categoría.
+
+---
+
+# 4. Elementos de una red local
+
+## 4.1. Dispositivos finales
+
+Los **dispositivos finales** son los extremos en los que se origina o termina una comunicación.
+
+También reciben con frecuencia el nombre de **hosts**.
+
+Son ejemplos:
+
+- ordenadores;
+- portátiles;
+- smartphones;
+- tablets;
+- impresoras de red;
+- servidores;
+- cámaras IP;
+- teléfonos IP;
+- determinados dispositivos IoT.
+
+Un dispositivo final puede:
+
+- generar datos;
+- recibirlos;
+- utilizar servicios;
+- ofrecer servicios;
+- almacenar información.
+
+Un servidor sigue siendo un dispositivo final desde el punto de vista de la infraestructura de comunicación: constituye uno de los extremos en los que termina u origina información.
+
+## 4.2. Interfaces de red
+
+Para participar en una red, un dispositivo necesita al menos una **interfaz de red**.
+
+La interfaz es el punto mediante el que el dispositivo se conecta a una red.
+
+Puede ser:
+
+- Ethernet;
+- Wi-Fi;
+- virtual;
+- de otras tecnologías.
+
+Un mismo dispositivo puede tener varias interfaces.
+
+```text
+PORTÁTIL
+├── interfaz Ethernet
+└── interfaz Wi-Fi
+```
+
+Cada interfaz puede participar en una conexión diferente y disponer de sus propios identificadores.
+
+## 4.3. Dispositivos intermedios
+
+Los **dispositivos intermedios** forman parte de la infraestructura que conecta los extremos y permite que la información pueda circular.
+
+Entre los más importantes para una LAN se encuentran:
+
+- switch;
+- router;
+- punto de acceso.
+
+### Diferencia general
+
+| Tipo | Papel principal |
+|---|---|
+| Dispositivo final | Origina, recibe, utiliza u ofrece información o servicios |
+| Dispositivo intermedio | Conecta dispositivos o redes y permite que la comunicación circule |
+
+Un mismo equipo físico puede integrar varias funciones. Las cajas utilizadas habitualmente en viviendas, por ejemplo, pueden incorporar funciones de router, switch y punto de acceso.
+
+---
+
+# 5. Switch, router y punto de acceso
+
+## 5.1. Switch
+
+Un **switch** es el dispositivo central más habitual de una LAN Ethernet cableada.
+
+Su función general es **interconectar dispositivos dentro de la red local**.
+
+```text
+PC-01 ──┐
+PC-02 ──┼── SWITCH
+PC-03 ──┤
+PRN-01 ─┘
+```
+
+Cada conexión utiliza un puerto del switch.
+
+En esta primera aproximación es suficiente comprender que el switch recibe información y la reenvía dentro de la red local hacia el lugar adecuado. El funcionamiento interno detallado de la conmutación se estudiará posteriormente.
+
+Un switch no proporciona por sí solo conexión con Internet. Puede existir una LAN completamente funcional formada por varios equipos y un switch sin conexión con redes externas.
+
+## 5.2. Router
+
+Un **router** comunica **redes diferentes**.
+
+En un escenario sencillo:
+
+```text
+LAN ─── ROUTER ─── OTRA RED
+```
+
+El router permite que la información pueda pasar desde una red hacia otra.
+
+En redes domésticas suele hablarse de “el router” para referirse a una caja que en realidad integra varias funciones. El trabajo específico de routing consiste en comunicar redes distintas.
+
+## 5.3. Punto de acceso
+
+Un **punto de acceso** o **AP** (*Access Point*) permite incorporar dispositivos inalámbricos a una red local.
+
+```text
+PORTÁTIL )))
+MÓVIL    ))) AP ─── LAN
+TABLET   )))
+```
+
+El AP suele estar conectado a la infraestructura cableada y proporciona acceso inalámbrico a los clientes.
+
+Un punto de acceso no es sinónimo de Internet. Puede proporcionar acceso Wi-Fi a una LAN aunque esa LAN no tenga conexión con redes externas.
+
+## 5.4. Funciones diferenciadas
+
+| Dispositivo | Función principal |
+|---|---|
+| **Switch** | Interconectar dispositivos dentro de una LAN |
+| **Router** | Comunicar redes diferentes |
+| **AP** | Incorporar clientes inalámbricos a una LAN |
+
+La selección del dispositivo depende de la necesidad que se quiera resolver.
+
+---
+
+# 6. Topologías de red
+
+## 6.1. Qué es una topología
+
+La **topología** describe cómo se organizan los elementos de una red.
+
+Puede analizarse desde dos perspectivas principales:
+
+- **topología física**;
+- **topología lógica**.
+
+## 6.2. Topología física
+
+La **topología física** describe las conexiones reales entre dispositivos.
+
+Permite identificar:
+
+- qué equipo está conectado a cuál;
+- qué enlaces existen;
+- dónde se encuentra un elemento central;
+- de qué equipo o enlace depende físicamente una zona;
+- qué medio se utiliza, si el plano incluye ese nivel de detalle.
+
+Ejemplo:
+
+```text
+PC-A ─────┐
+PC-B ─────┼── SWITCH
+PC-C ─────┘
+```
+
+El esquema indica que los tres equipos se conectan físicamente a un elemento central.
+
+## 6.3. Topología lógica
+
+La **topología lógica** se centra en la forma en que se organiza la comunicación desde el punto de vista funcional.
+
+La organización física y la lógica no tienen por qué ser exactamente la misma descripción.
+
+La configuración de una red puede modificar determinadas relaciones lógicas sin necesidad de cambiar físicamente todos los cables.
+
+En esta unidad interesa principalmente reconocer la diferencia entre ambas perspectivas. Los mecanismos concretos que modifican la organización lógica se estudiarán más adelante.
+
+## 6.4. Topología en estrella
+
+En una **estrella**, cada dispositivo dispone de un enlace hacia un elemento central.
+
+En una LAN actual ese elemento suele ser un switch.
+
+```text
+           PC-A
+            │
+PC-B ──── SWITCH ──── PC-C
+            │
+         PRN-01
+```
+
+Características principales:
+
+- cada extremo utiliza su propio enlace hacia el centro;
+- un fallo en el cable de un equipo suele afectar únicamente a ese equipo;
+- el dispositivo central constituye un punto crítico;
+- resulta sencilla de ampliar, entender y documentar.
+
+Por estas razones es la topología física habitual en muchas LAN Ethernet actuales.
+
+## 6.5. Topología en bus
+
+En una **topología en bus**, varios dispositivos comparten un mismo medio principal.
+
+Representación simplificada:
+
+```text
+PC-A ───── PC-B ───── PC-C ───── PC-D
+            medio compartido
+```
+
+Fue importante históricamente en determinadas redes Ethernet basadas en cable coaxial.
+
+Sus principales limitaciones son:
+
+- muchos equipos dependen del mismo medio;
+- un problema importante en ese medio puede afectar a gran parte de la red;
+- la localización de fallos puede resultar más compleja.
+
+No es la topología física habitual de las LAN Ethernet cableadas actuales, pero sigue siendo útil para comprender la evolución de las redes y el concepto de medio compartido.
+
+## 6.6. Topología en anillo
+
+En una **topología en anillo**, los nodos se organizan formando un circuito.
+
+```text
+A ─── B
+|     |
+D ─── C
+```
+
+Cada nodo queda relacionado con sus vecinos dentro del recorrido.
+
+Esta topología tiene importancia histórica y conceptual. Su comportamiento depende de la tecnología concreta utilizada y de cómo se gestione el anillo.
+
+## 6.7. Topología en árbol o estrella extendida
+
+Una **topología en árbol** puede entenderse como varias estrellas conectadas por niveles.
+
+```text
+                 SW-PRINCIPAL
+                /      |      \
+             SW-A     SW-B     SW-C
+            / | \     /|\      /|\
+           PC PC PC  PC PC PC  PC PC PC
+```
+
+Es habitual utilizar estructuras de este tipo en:
+
+- centros educativos;
+- edificios con varias plantas;
+- oficinas con distintas zonas;
+- redes que deben crecer de forma ordenada.
+
+Permite organizar la infraestructura jerárquicamente, aunque los equipos situados en niveles superiores pueden convertirse en puntos críticos para varias ramas.
+
+## 6.8. Topología en malla
+
+En una **malla** existen varios caminos entre determinados nodos.
+
+El objetivo principal es proporcionar **redundancia**, es decir, disponer de enlaces o caminos alternativos para reducir el impacto de determinados fallos.
+
+### Malla total
+
+En una malla total todos los nodos se conectan directamente entre sí.
+
+Proporciona una gran cantidad de caminos, pero el número de enlaces aumenta rápidamente conforme crece la red.
+
+### Malla parcial
+
+En una malla parcial solo determinados nodos cuentan con varios caminos.
+
+Es más habitual cuando se desea mejorar la continuidad sin multiplicar innecesariamente el coste y la complejidad.
+
+## 6.9. Topología híbrida
+
+Una red **híbrida** combina varias topologías.
+
+Por ejemplo:
+
+- estrella dentro de las aulas;
+- árbol entre distintas zonas o plantas;
+- malla parcial en una parte crítica de la infraestructura.
+
+No existe contradicción en describir una red de distintas maneras si se especifica qué parte se está analizando.
+
+## 6.10. Comparación general
+
+| Topología | Idea principal | Situación habitual |
 |---|---|---|
-| PC-A | `192.168.10.11` | `255.255.255.0` |
-| PC-B | `192.168.10.12` | `255.255.255.0` |
-| PC-C | `192.168.10.13` | `255.255.255.0` |
-| Impresora | `192.168.10.20` | `255.255.255.0` |
+| Estrella | Extremos conectados a un centro | LAN Ethernet de aula u oficina |
+| Bus | Medio principal compartido | Importancia histórica |
+| Anillo | Nodos formando un circuito | Importancia histórica y conceptual |
+| Árbol | Varias estrellas organizadas jerárquicamente | Edificios y redes por zonas |
+| Malla | Varios caminos entre nodos | Infraestructuras con necesidades de redundancia |
+| Híbrida | Combinación de varias topologías | Redes reales de tamaño medio o grande |
 
-> 📌 En esta unidad no tienes que explicar todavía cómo se calcula una máscara ni cómo funciona el encaminamiento. Aquí esas direcciones sirven únicamente para **comprobar una LAN sencilla ya definida**.
+---
 
-### El archivo de partida
+# 7. Medios de transmisión
 
-El archivo preparado contiene **un fallo intencionado de conexionado**.
+Un **medio de transmisión** es el canal utilizado para transportar las señales entre los dispositivos.
 
-Tu misión no es borrar la red y empezar otra vez. Debes comportarte como un técnico:
+En esta unidad se distinguen tres grandes familias:
+
+- cobre;
+- fibra óptica;
+- radio.
+
+El estudio detallado de cables, conectores, categorías, instalación y certificación se desarrollará posteriormente.
+
+## 7.1. Cobre
+
+Los enlaces de cobre transportan información mediante **señales eléctricas**.
+
+En muchas LAN se utilizan cables formados por pares de conductores trenzados para conectar:
+
+- equipos de usuario;
+- impresoras;
+- switches;
+- routers;
+- otros dispositivos de red.
+
+Ventajas generales:
+
+- tecnología muy extendida;
+- coste razonable;
+- instalación habitual en aulas y oficinas;
+- adecuada para muchos enlaces locales.
+
+Limitaciones generales:
+
+- la señal puede verse afectada por interferencias;
+- existe una distancia máxima práctica para cada tecnología;
+- requiere desplegar físicamente el cable.
+
+## 7.2. Fibra óptica
+
+La **fibra óptica** transporta información mediante luz.
+
+Ventajas generales:
+
+- permite enlaces de gran capacidad;
+- resulta adecuada para distancias superiores a las habituales del cobre;
+- no se ve afectada por interferencias electromagnéticas de la misma forma que los conductores eléctricos.
+
+Limitaciones generales:
+
+- requiere componentes y procedimientos específicos;
+- su manipulación e instalación necesitan mayor especialización.
+
+## 7.3. Radio
+
+Las comunicaciones inalámbricas utilizan **ondas electromagnéticas**.
+
+Wi-Fi es una tecnología habitual de red local que utiliza radio para conectar dispositivos sin un cable hasta cada cliente.
+
+Ventajas generales:
+
+- movilidad;
+- flexibilidad;
+- facilidad para incorporar dispositivos portátiles;
+- menor necesidad de llevar un cable a cada posición.
+
+Limitaciones generales:
+
+- el medio es compartido;
+- la cobertura depende del entorno;
+- pueden aparecer interferencias;
+- paredes, distancia y otros obstáculos pueden afectar a la señal.
+
+## 7.4. Una LAN puede combinar medios
+
+Las redes reales suelen combinar varias tecnologías.
+
+Ejemplo:
 
 ```text
-OBSERVAR
-   ↓
-COMPARAR CON EL DISEÑO
-   ↓
-LOCALIZAR LA DIFERENCIA
-   ↓
-CORREGIR UNA COSA
-   ↓
-COMPROBAR
-   ↓
-EXPLICAR
+PC fijo ───── cobre ─────┐
+                         │
+Servidor ───── cobre ─── SWITCH ─── enlace hacia otras zonas
+                         │
+                       AP-01
+                      )))  )))
+                  portátil móvil
 ```
 
-### Tareas
+Los clientes inalámbricos utilizan radio hacia el AP, mientras que el AP puede estar conectado mediante cable a la infraestructura de la LAN.
 
-1. Identifica todos los dispositivos y clasifícalos como:
-   - dispositivo final;
-   - dispositivo intermedio.
-2. Dibuja o describe la topología que debería tener la LAN.
-3. Comprueba qué equipos están realmente conectados al switch.
-4. Localiza el fallo sin cambiar varias cosas a la vez.
-5. Corrígelo.
-6. Desde `PC-A`, comprueba la conectividad con:
-   - `PC-B`;
-   - `PC-C`;
-   - la impresora.
-7. Entrega una evidencia breve:
-   - qué estaba mal;
-   - qué cambiaste;
-   - qué prueba demuestra que ahora funciona.
+## 7.5. Medio y tecnología no son lo mismo
 
-### Pistas
+Conviene diferenciar ambos conceptos:
 
-<details>
-<summary>🧩 Pista 1</summary>
+- **cobre, fibra y radio** describen medios de transmisión;
+- **Ethernet** es una familia de tecnologías y reglas utilizadas ampliamente en redes locales;
+- **Wi-Fi** es una familia de tecnologías inalámbricas que utiliza radio.
 
-Compara la red real con el esquema de referencia. No empieces mirando direcciones: primero observa **quién está conectado a quién**.
-
-</details>
-
-<details>
-<summary>🧩 Pista 2</summary>
-
-En esta LAN, los dispositivos finales deberían reunirse en el switch. Revisa especialmente `PC-C`.
-
-</details>
-
-<details>
-<summary>🐍 Solución del fallo</summary>
-
-`PC-C` está conectado a una interfaz del **router** en lugar de estar conectado al **switch**.
-
-La corrección consiste en retirar ese enlace y conectar `PC-C` a un puerto disponible del switch.
-
-La evidencia final debe ser doble:
-
-1. la topología coincide con el diseño previsto;
-2. las pruebas de conectividad entre los equipos de la LAN funcionan.
-
-La idea importante no es «mover un cable hasta que haya ping», sino **justificar por qué el switch es el lugar correcto para conectar los hosts de esa LAN**.
-
-</details>
-
-### Ampliación
-
-Si terminas antes:
-
-- añade un cuarto PC a la LAN;
-- asigna una dirección siguiendo el patrón de la tabla;
-- actualiza el esquema;
-- explica por qué lo has conectado al switch y no directamente al router.
+Por tanto, decir que un dispositivo utiliza Wi-Fi aporta información sobre la tecnología de acceso; decir que utiliza radio identifica el medio físico por el que se transmiten las señales.
 
 ---
 
-## 7. 🧠 Atrévete a pensar
+# 8. Comunicación, protocolos y estándares
 
-### 1. La red del aula
+## 8.1. Elementos básicos de una comunicación
 
-Un aula tiene 24 PC, una impresora de red y un switch. Todo está dentro de la misma sala.
+Para que exista una comunicación pueden identificarse varios elementos:
 
-¿Qué tipo de red es principalmente por su alcance?
+| Elemento | Función |
+|---|---|
+| **Emisor** | Origina la información |
+| **Receptor** | Recibe la información |
+| **Mensaje** | Información que se intercambia |
+| **Medio** | Transporta la señal |
+| **Reglas** | Determinan cómo se organiza e interpreta la comunicación |
 
-<details>
-<summary>🔄 Solución</summary>
+Una conexión física no garantiza por sí sola que dos sistemas puedan comunicarse correctamente.
 
-Una **LAN** (*Local Area Network*), porque conecta dispositivos dentro de un área local reducida.
+## 8.2. Qué es un protocolo
 
-</details>
+Un **protocolo de red** es un conjunto de reglas utilizadas para que dos o más sistemas puedan comunicarse de forma compatible.
 
-### 2. El dispositivo correcto
+Estas reglas pueden establecer, entre otros aspectos:
 
-Tienes ocho PC en la misma oficina y quieres conectarlos entre sí mediante cable.
+- cómo se organiza la información;
+- cómo se identifica el origen y el destino;
+- cómo se envían los datos;
+- cómo se interpretan;
+- cómo se detectan determinadas situaciones durante la comunicación.
 
-¿Comprarías un switch, un router o un punto de acceso como elemento central?
-
-<details>
-<summary>🔄 Solución</summary>
-
-Un **switch**. Su función principal es conectar dispositivos dentro de una misma LAN cableada.
-
-</details>
-
-### 3. El edificio crece
-
-En un instituto hay un switch por planta y todos se conectan a un switch central.
-
-¿Qué topología representa mejor esa organización?
-
-<details>
-<summary>🔄 Solución</summary>
-
-Una topología en **árbol**, formada por varias estructuras en estrella conectadas jerárquicamente.
-
-</details>
-
-### 4. Físico no siempre significa lógico
-
-Dos diagramas muestran la misma red:
-
-- el primero indica cables, puertos y ubicación física;
-- el segundo muestra cómo se organiza la comunicación.
-
-¿Representan exactamente lo mismo?
-
-<details>
-<summary>🔄 Solución</summary>
-
-No. El primero es una representación **física**; el segundo, **lógica**.
-
-Los dos describen la misma red desde puntos de vista distintos.
-
-</details>
-
-### 5. Cliente-servidor o P2P
-
-Un equipo central almacena los documentos y veinte ordenadores acceden a ellos.
-
-¿Qué modelo describe mejor la situación?
-
-<details>
-<summary>🔄 Solución</summary>
-
-**Cliente-servidor.** Los equipos solicitan un servicio y el servidor central lo proporciona.
-
-</details>
-
-### 6. El medio adecuado
-
-Debes unir dos equipos que están en la misma mesa, pero uno es un portátil que se mueve constantemente.
-
-¿Qué criterio utilizarías para decidir entre cable y conexión inalámbrica?
-
-<details>
-<summary>🔄 Solución</summary>
-
-No existe una respuesta única solo por la distancia. Hay que valorar **movilidad, estabilidad, interferencias, seguridad y necesidades de rendimiento**.
-
-Para un equipo fijo suele resultar natural el cable; para uno móvil, la conexión inalámbrica aporta flexibilidad.
-
-</details>
-
-### 7. La caja del operador
-
-En casa hay una sola caja con Wi-Fi, varios puertos Ethernet y conexión con el operador.
-
-¿Significa eso que «router», «switch» y «punto de acceso» son la misma función?
-
-<details>
-<summary>🔄 Solución</summary>
-
-No.
-
-Una caja doméstica puede **integrar varias funciones**, pero estas siguen siendo diferentes:
-
-- routing entre redes;
-- switching entre puertos Ethernet;
-- acceso inalámbrico mediante Wi-Fi.
-
-</details>
-
-### 8. Una representación útil
-
-Te entregan un dibujo precioso de una red, pero no aparecen nombres de equipos, conexiones ni función de los dispositivos.
-
-¿Es suficiente como documentación técnica?
-
-<details>
-<summary>🔄 Solución</summary>
-
-No. Una representación técnica debe permitir que otra persona **identifique elementos, conexiones y organización**.
-
-Un dibujo decorativo puede ser atractivo, pero no sustituye a un mapa de red comprensible.
-
-</details>
-
----
-
-## 8. 🧩 Crucigrama de bits
-
-Completa las palabras a partir de las pistas.
+Los protocolos no son el medio de transmisión.
 
 ```text
-1. _ _ _ _ _ _       Dispositivo que conecta equipos de una LAN.
-2. _ _ _ _ _ _       Dispositivo que conecta redes diferentes.
-3. _ _ _              Red de área local.
-4. _ _ _ _            Equipo conectado que origina o recibe información.
-5. _ _                 Punto de acceso inalámbrico.
-6. _ _ _ _ _          Canal por el que se transmite la información.
-7. _ _ _ _ _ _ _ _ _ Proceso o disposición que describe cómo se organiza una red.
-8. _ _ _ _ _ _ _ _ _ Reglas que permiten que dos sistemas se comuniquen.
+MEDIO       → por dónde viajan las señales
+PROTOCOLOS  → cómo se organiza e interpreta la comunicación
 ```
 
-> 💡 **Pista:** algunas respuestas son términos técnicos que se mantienen en inglés porque son los que encontrarás en documentación, interfaces y equipos reales.
+## 8.3. Los protocolos trabajan conjuntamente
 
-<details>
-<summary>🔄 Solución del crucigrama</summary>
+Una comunicación moderna no suele depender de un único protocolo.
 
-1. **SWITCH**
-2. **ROUTER**
-3. **LAN**
-4. **HOST**
-5. **AP**
-6. **MEDIO**
-7. **TOPOLOGÍA**
-8. **PROTOCOLO**
+Diferentes reglas se ocupan de funciones distintas. Al utilizar un servicio de red pueden intervenir mecanismos relacionados con:
 
-</details>
+- el acceso al medio;
+- la comunicación local;
+- el direccionamiento;
+- el transporte;
+- el servicio utilizado por la aplicación.
 
----
+Esta separación de funciones permite construir sistemas complejos a partir de componentes especializados.
 
-## 9. 💬 Entrevista de trabajo
+## 8.4. Algunos protocolos y familias que aparecerán durante el módulo
 
-Imagina una entrevista para realizar prácticas en una pequeña empresa de soporte informático.
+En esta unidad solo es necesario reconocer su función general.
 
-### Pregunta 1
-
-**«Explícame con tus palabras qué es una LAN.»**
-
-### Pregunta 2
-
-**«¿Qué diferencia básica hay entre un switch y un router?»**
-
-### Pregunta 3
-
-**«¿Qué topología esperarías encontrar hoy en una oficina con varios PC cableados?»**
-
-### Pregunta 4
-
-**«¿Qué diferencia existe entre topología física y lógica?»**
-
-### Pregunta 5
-
-**«¿Qué elementos mínimos buscarías al revisar una red local que no conoces?»**
-
-### Pregunta 6
-
-**«¿Wi-Fi e Internet son lo mismo?»**
-
-### Pregunta 7
-
-**«¿Qué diferencia básica hay entre un modelo cliente-servidor y uno P2P?»**
-
-### Pregunta 8
-
-**«Si te entrego una red que no funciona, ¿empezarías cambiando cosas o comparando primero la situación con un diseño?»**
-
-<details>
-<summary>🧑‍💼 Qué debería aparecer en buenas respuestas</summary>
-
-1. **LAN:** dispositivos conectados dentro de un área local para comunicarse y compartir recursos.
-2. **Switch vs router:** el switch conecta equipos dentro de la LAN; el router comunica redes diferentes.
-3. **Topología habitual:** estrella, normalmente con un switch central.
-4. **Física vs lógica:** cableado/conexiones reales frente a organización o flujo lógico de la comunicación.
-5. **Elementos:** hosts, interfaces, dispositivos intermedios, medios, conexiones y organización de la red.
-6. **Wi-Fi ≠ Internet:** Wi-Fi es una tecnología de acceso inalámbrico; Internet es una red de redes.
-7. **Cliente-servidor vs P2P:** en el primero hay roles diferenciados; en P2P los equipos pueden compartir recursos entre iguales.
-8. **Diagnóstico:** primero observar, recoger información y comparar; después cambiar una sola cosa y verificar.
-
-No hace falta recitar definiciones de memoria. Una buena respuesta es **clara, técnicamente correcta y acompañada de un ejemplo sencillo**.
-
-</details>
-
----
-
-## 10. 🤷 No hay preguntas tontas
-
-### «¿Una LAN necesita Internet para existir?»
-
-No.
-
-Dos equipos conectados dentro de una red local pueden comunicarse y compartir recursos aunque esa red no tenga ninguna salida a Internet.
-
-> **CONRAD:** — «Internet no es el certificado de nacimiento de una LAN. Puedo trabajar perfectamente sin ver una sola página web, gracias.»
-
----
-
-### «¿Wi-Fi es una red distinta de la LAN cableada?»
-
-No necesariamente.
-
-Wi-Fi describe una forma de acceso inalámbrico. Un punto de acceso puede integrar esos dispositivos inalámbricos en la misma red local en la que están los equipos cableados.
-
-> **CONRAD:** — «El aire no convierte mágicamente a un portátil en ciudadano de otro planeta.»
-
----
-
-### «¿Un router doméstico es solo un router?»
-
-A menudo no.
-
-La caja del operador suele integrar varias funciones: router, switch Ethernet, punto de acceso inalámbrico y otras funciones adicionales.
-
-> **CONRAD:** — «Una caja puede hacer cuatro trabajos. Eso no significa que los cuatro trabajos tengan el mismo nombre.»
-
----
-
-### «¿Switch y hub son lo mismo?»
-
-No.
-
-Los dos pueden parecer cajas con varios puertos, pero su comportamiento es distinto. El switch toma decisiones de reenvío y es el dispositivo habitual en las LAN actuales. El hub es una tecnología antigua y mucho más limitada.
-
-> **CONRAD:** — «Compararme con un hub debería contar como falta de respeto al material informático.»
-
----
-
-### «¿La topología es solo un dibujo?»
-
-No.
-
-El dibujo es una **representación** de la topología. La topología describe cómo se organizan las conexiones o el flujo lógico de la red.
-
-Un buen esquema ayuda a instalar, mantener, explicar y diagnosticar.
-
----
-
-### «¿Tengo que aprender ya todas las capas OSI de memoria?»
-
-No es el objetivo principal de esta unidad.
-
-Debes comprender **para qué sirve un modelo por capas** y empezar a situar conceptos básicos. La profundidad llegará cuando el curso necesite utilizar esas capas para explicar configuraciones o diagnosticar.
-
-> **CONRAD:** — «Memorizar siete palabras sin entender para qué sirven es una actividad excelente si tu objetivo profesional es ganar concursos de siete palabras.»
-
----
-
-### «¿Packet Tracer sustituye a una red real?»
-
-No.
-
-Es un simulador muy útil para observar, construir, modificar y diagnosticar escenarios de red sin disponer de todo el hardware físico. Pero una simulación no sustituye completamente competencias manuales como montar cableado, manipular conectores o trabajar con equipamiento real.
-
----
-
-### «¿Por qué dibujar una red si puedo mirar los cables?»
-
-Porque una red deja de ser sencilla muy rápido.
-
-Un mapa permite saber:
-
-- qué equipos existen;
-- cómo están conectados;
-- qué función tiene cada uno;
-- qué debería ocurrir;
-- dónde empezar a buscar cuando algo no coincide con el diseño.
-
-> **CONRAD:** — «Cuando tengas cuarenta cables del mismo color, vuelve y me cuentas lo de “ya lo veo a simple vista”.»
-
----
-
-## 11. 🎬 Poscréditos
-
-> *El aula queda vacía. Las pantallas están apagadas. CONRAD sigue encendido en una mesa porque, naturalmente, nadie ha desconectado el switch.*
-
-**CONRAD:** — Por fin. Ya saben distinguir un switch de un router. Creía que no viviría para verlo.
-
-**Router:** — Tampoco exageres.
-
-**CONRAD:** — La semana pasada alguien te llamó «la caja del Wi-Fi».
-
-**Router:** — No quiero hablar de ello.
-
-*Se oye el ruido de una caja de herramientas abriéndose al fondo.*
-
-**Router:** — ¿Qué ha sido eso?
-
-**CONRAD:** — Cables. Herramientas. Cortes. Tropiezos. Electricidad. Residuos.
-
-**Router:** — Eso suena menos divertido.
-
-**CONRAD:** — Lo será todavía menos si alguien empieza a manipular material sin aprender primero a trabajar con seguridad.
-
-*Una crimpadora aparece sobre la mesa.*
-
-**Router:** — ¿La van a usar ya?
-
-**CONRAD:** — Ni tocarla. Primero vamos a evitar que el técnico termine siendo la primera incidencia del curso.
-
-> **PRÓXIMAMENTE EN U02: Prevención de riesgos y protección ambiental en redes — porque arreglar una red está bien; no tener que arreglar al técnico está mejor.** 🦺
-
----
-
-## 12. ✅ CEs cubiertos
-
-Esta unidad desarrolla el **RA1: reconocimiento de la estructura de las redes locales**.
-
-| CE | Cobertura en la unidad |
+| Protocolo o familia | Función general |
 |---|---|
-| **RA1.a** | Qué es una red; comunicación; reglas; recursos; protocolos introductorios; explicación de una LAN. |
-| **RA1.b** | PAN, LAN, WLAN, CAN, MAN y WAN; clasificaciones y selección. |
-| **RA1.c** | Hosts, NIC, switch, router, AP, servidores y otros elementos. |
-| **RA1.d** | Cobre, fibra y radio como primera aproximación a los medios de transmisión. |
-| **RA1.e** | Lectura de mapas físicos y correspondencia con escenarios de red. |
-| **RA1.f** | Uso introductorio de Packet Tracer, diagrams.net o herramienta equivalente para representar redes. |
-| **RA1.g** | Topologías físicas y lógicas. |
-| **RA1.h** | Cliente-servidor, P2P, redes mixtas y estructuras alternativas. |
+| **Ethernet** | Tecnologías y reglas ampliamente utilizadas en LAN cableadas |
+| **IP** | Direccionamiento lógico y comunicación entre redes |
+| **TCP** | Transporte de información con mecanismos de control |
+| **UDP** | Transporte más sencillo, con menos mecanismos de control |
+| **HTTP / HTTPS** | Comunicación relacionada con servicios web |
+| **DNS** | Relación entre nombres y direcciones |
+| **DHCP** | Obtención automática de parámetros de red |
+| **ICMP** | Mensajes de control y comprobación |
 
-> ✅ **Al terminar la unidad deberías poder mirar una LAN sencilla y responder con criterio a cinco preguntas:** qué dispositivos hay, qué función cumple cada uno, cómo están conectados, qué tipo de red forman y cómo la representarías para que otra persona pudiera entenderla.
+No es necesario estudiar todavía sus cabeceras, puertos, mensajes internos o configuración detallada.
+
+## 8.5. Estándares e interoperabilidad
+
+Una red puede incluir dispositivos de diferentes fabricantes.
+
+Los **estándares** permiten que esos equipos utilicen especificaciones comunes y puedan trabajar conjuntamente.
+
+La **interoperabilidad** es la capacidad de sistemas diferentes para colaborar siguiendo reglas compatibles.
+
+Los estándares facilitan:
+
+- conexión entre equipos de distintos fabricantes;
+- sustitución de componentes;
+- ampliación de infraestructuras;
+- creación de redes compatibles;
+- desarrollo de tecnologías comunes.
 
 ---
 
-## 🏆 Logros
+# 9. Modelos OSI y TCP/IP
 
-| Logro | Cómo conseguirlo |
+Las comunicaciones de red son demasiado complejas para estudiarlas como una única operación.
+
+Los modelos por capas permiten dividir el problema y asignar diferentes funciones a distintos niveles.
+
+## 9.1. Para qué sirve trabajar por capas
+
+Separar la comunicación en capas ayuda a:
+
+- comprender funciones diferentes;
+- utilizar estándares;
+- sustituir tecnologías sin rediseñar todo el sistema;
+- ordenar conceptos;
+- localizar problemas de forma más sistemática.
+
+Las capas deben entenderse como un **modelo para razonar**, no como una lista de nombres aislados.
+
+## 9.2. Modelo OSI
+
+**OSI** significa *Open Systems Interconnection*.
+
+Es un modelo de referencia formado por siete capas:
+
+```text
+7  Aplicación
+6  Presentación
+5  Sesión
+4  Transporte
+3  Red
+2  Enlace de datos
+1  Física
+```
+
+### Función general de cada capa
+
+| Capa | Nombre | Función general |
+|---:|---|---|
+| 7 | Aplicación | Servicios de red utilizados por las aplicaciones |
+| 6 | Presentación | Representación y transformación de la información |
+| 5 | Sesión | Organización de sesiones de comunicación |
+| 4 | Transporte | Comunicación entre aplicaciones |
+| 3 | Red | Direccionamiento lógico y comunicación entre redes |
+| 2 | Enlace de datos | Comunicación a través del enlace local |
+| 1 | Física | Transmisión de bits mediante señales |
+
+En este módulo tendrán especial importancia las capas inferiores y medias, porque permiten relacionar conceptos como:
+
+- medios físicos;
+- Ethernet;
+- direcciones MAC;
+- direcciones IP;
+- transporte;
+- servicios de aplicación.
+
+### Relación inicial entre conceptos y capas
+
+| Concepto | Capa de referencia |
 |---|---|
-| 🏅 **Ya no es “la caja del Wi-Fi”** | Distinguir correctamente switch, router y punto de acceso. |
-| 🏅 **Cartógrafo de LAN** | Representar una red sencilla de forma comprensible. |
-| 🏅 **Estrella consciente** | Explicar por qué la estrella es habitual en una LAN actual. |
-| 🏅 **Detector de roles** | Clasificar correctamente hosts y dispositivos intermedios. |
-| 🏅 **Cable con propósito** | Justificar qué dispositivos deben conectarse entre sí. |
-| 🏅 **Conrad aprueba** | Encontrar el fallo del laboratorio sin cambiar cinco cosas a la vez. |
-| 🏅 **Técnico, no adivino** | Explicar qué evidencia demuestra que una corrección funciona. |
+| Cable de cobre, fibra, radio, señal | 1 · Física |
+| Ethernet y dirección MAC | 2 · Enlace de datos |
+| Dirección IP y routing | 3 · Red |
+| TCP y UDP | 4 · Transporte |
+| Servicios como HTTP o DNS | 7 · Aplicación |
+
+Esta tabla es una primera aproximación para situar conceptos.
+
+## 9.3. Modelo TCP/IP
+
+La familia TCP/IP constituye la base de la comunicación utilizada en Internet y en la mayoría de redes actuales.
+
+En estos apuntes se utilizará una representación de cuatro capas:
+
+```text
+APLICACIÓN
+TRANSPORTE
+INTERNET
+ACCESO A RED
+```
+
+## 9.4. Relación sencilla entre OSI y TCP/IP
+
+| Modelo OSI | Modelo TCP/IP |
+|---|---|
+| Aplicación + Presentación + Sesión | Aplicación |
+| Transporte | Transporte |
+| Red | Internet |
+| Enlace + Física | Acceso a red |
+
+OSI separa las funciones con más detalle y resulta muy útil para estudiar y razonar.
+
+TCP/IP agrupa algunas de esas funciones y se aproxima a la organización práctica de los protocolos utilizados en las redes actuales.
+
+No son modelos rivales: pueden utilizarse con objetivos diferentes.
+
+## 9.5. Recorrido conceptual de la información
+
+Cuando una aplicación envía información, diferentes niveles participan antes de que la señal llegue al medio.
+
+De forma simplificada:
+
+```text
+APLICACIÓN
+    ↓
+TRANSPORTE
+    ↓
+RED / INTERNET
+    ↓
+ENLACE / ACCESO A RED
+    ↓
+FÍSICA
+```
+
+En el receptor se produce el recorrido correspondiente en sentido inverso.
+
+En unidades posteriores se estudiará con mayor detalle cómo cada nivel añade y procesa información.
 
 ---
 
-> 🌐 **Cierre de U01:** ya tienes el mapa mental. A partir de aquí empezaremos a trabajar con el soporte físico, las herramientas y las decisiones que convierten ese mapa en una instalación real.
+# 10. Interfaces e identificadores
+
+Un equipo de red puede tener diferentes datos asociados a su identidad y a sus conexiones.
+
+No deben confundirse:
+
+- hostname;
+- interfaz;
+- dirección MAC;
+- dirección IP.
+
+## 10.1. Interfaz
+
+Una **interfaz de red** es un punto de conexión entre un dispositivo y una red.
+
+Un equipo puede disponer de varias:
+
+```text
+PORTÁTIL
+├── Ethernet
+└── Wi-Fi
+```
+
+En sistemas GNU/Linux pueden aparecer nombres como:
+
+```text
+enp0s3
+wlp2s0
+lo
+```
+
+Los nombres concretos dependen del sistema y del hardware.
+
+`lo` representa una interfaz especial denominada **loopback** y no corresponde a un cable físico.
+
+## 10.2. Dirección MAC
+
+Una **dirección MAC** (*Media Access Control*) es un identificador asociado a una interfaz en el nivel de enlace.
+
+Un formato habitual en Ethernet es:
+
+```text
+52:54:00:12:34:56
+```
+
+Es más preciso hablar de:
+
+> la dirección MAC de una interfaz
+
+que de:
+
+> la MAC del ordenador
+
+porque un equipo puede disponer de varias interfaces y cada una puede tener su propia MAC.
+
+Las direcciones MAC suelen estar asignadas a la interfaz, pero pueden modificarse o aleatorizarse mediante software en determinadas situaciones. Por ello no debe considerarse correcto afirmar de forma absoluta que una MAC nunca cambia.
+
+## 10.3. Dirección IP
+
+Una **dirección IP** es una dirección lógica utilizada en una red basada en IP.
+
+Ejemplo de IPv4:
+
+```text
+192.168.1.25
+```
+
+Una dirección IP se asocia a una interfaz dentro de un contexto de red.
+
+Puede cambiar cuando:
+
+- el dispositivo se conecta a otra red;
+- se modifica su configuración;
+- recibe parámetros diferentes de forma automática.
+
+En esta unidad solo es necesario reconocerla y diferenciarla de otros identificadores. El direccionamiento IPv4 e IPv6 se estudiará con profundidad posteriormente.
+
+## 10.4. Hostname
+
+El **hostname** es el nombre asignado a un equipo.
+
+Ejemplos:
+
+```text
+PC-AULA-07
+SRV-CENTRO
+PC-ADM01
+```
+
+El hostname facilita la identificación humana del dispositivo.
+
+No es una dirección MAC ni una dirección IP.
+
+## 10.5. Comparación
+
+| Elemento | Qué representa | Ejemplo |
+|---|---|---|
+| **Hostname** | Nombre del equipo | `PC-AULA-07` |
+| **Interfaz** | Punto de conexión con una red | `enp0s3` |
+| **MAC** | Identificador de una interfaz en el enlace | `A4:5E:60:12:34:56` |
+| **IP** | Dirección lógica de una interfaz en una red | `192.168.1.27` |
+
+## 10.6. Un equipo puede tener varios identificadores
+
+Ejemplo conceptual:
+
+```text
+Hostname: PORT-01
+
+Ethernet
+  interfaz: enp3s0
+  MAC:      8C:85:90:AA:10:01
+  IP:       192.168.1.40
+
+Wi-Fi
+  interfaz: wlp2s0
+  MAC:      8C:85:90:BB:20:02
+  IP:       192.168.1.88
+```
+
+El equipo tiene un nombre, pero varias interfaces.
+
+Cada interfaz puede disponer de:
+
+- su propia MAC;
+- su propia configuración IP.
+
+## 10.7. Observación básica en GNU/Linux
+
+En Debian y otros sistemas GNU/Linux pueden consultarse estos datos mediante herramientas de línea de comandos.
+
+### Nombre del equipo
+
+```bash
+hostname
+```
+
+### Interfaces y direcciones MAC
+
+```bash
+ip link
+```
+
+### Direcciones IP
+
+```bash
+ip address
+```
+
+o de forma abreviada:
+
+```bash
+ip addr
+```
+
+Estos comandos permiten observar información. Modificar la configuración requiere otras operaciones que se estudiarán cuando corresponda.
+
+---
+
+# 11. Representación y documentación de una LAN
+
+Comprender una red también implica ser capaz de representarla de forma que otra persona pueda interpretarla.
+
+## 11.1. Qué es un diagrama de red
+
+Un **diagrama de red** es una representación técnica de dispositivos y relaciones mediante símbolos, nombres y enlaces.
+
+Ejemplo:
+
+```text
+PC-01 ─┐
+PC-02 ─┤
+PC-03 ─┼── SW-AULA ─── R-CENTRO ─── otra red
+PRN-01 ┤
+SRV-01 ┘
+```
+
+Este esquema permite reconocer:
+
+- los dispositivos existentes;
+- el switch;
+- la topología general;
+- la relación de los equipos con el switch;
+- el router que conecta con otra red;
+- los nombres utilizados para identificar los elementos.
+
+## 11.2. Mapa físico
+
+Un **mapa físico** se centra en la ubicación y las conexiones reales.
+
+Puede mostrar:
+
+- salas o zonas;
+- equipos;
+- switches;
+- puntos de acceso;
+- tomas;
+- recorridos de cable;
+- enlaces entre dispositivos.
+
+Su finalidad es reflejar cómo está desplegada físicamente la infraestructura.
+
+## 11.3. Mapa lógico
+
+Un **mapa lógico** representa relaciones relevantes desde el punto de vista de la comunicación o de la organización funcional.
+
+Puede incorporar, según el nivel de conocimientos disponible:
+
+- redes;
+- agrupaciones lógicas;
+- direccionamiento;
+- VLAN;
+- rutas;
+- servicios;
+- otras relaciones lógicas.
+
+En esta primera unidad los diagramas se centran sobre todo en la estructura general y en la correspondencia entre los dispositivos y sus conexiones.
+
+## 11.4. Información que debe aparecer
+
+Un diagrama debe incluir la información necesaria para comprender la red, evitando sobrecargarlo.
+
+### Dispositivos
+
+Deben aparecer los elementos relevantes:
+
+- PCs;
+- servidores;
+- impresoras;
+- switches;
+- routers;
+- puntos de acceso;
+- otros dispositivos necesarios.
+
+### Nombres
+
+Los dispositivos deben tener identificadores claros.
+
+Es preferible:
+
+```text
+PC-01
+PC-02
+SW-AULA
+R-CENTRO
+AP-01
+```
+
+a utilizar varios elementos llamados simplemente `PC`, `switch` o `router`.
+
+### Enlaces
+
+Las líneas deben permitir saber qué dispositivos están conectados.
+
+Si se representan distintos medios, la simbología debe ser comprensible.
+
+Por ejemplo:
+
+```text
+────────   enlace cableado
+- - - -    enlace inalámbrico
+```
+
+La representación debe ir acompañada de una leyenda cuando sea necesaria.
+
+### Zonas
+
+En determinados diagramas resulta útil agrupar los elementos por ubicación o función:
+
+```text
+AULA
+ADMINISTRACIÓN
+ARMARIO DE COMUNICACIONES
+OTRA RED
+```
+
+### Datos técnicos
+
+Solo deben incluirse cuando aporten información relevante.
+
+En una representación inicial pueden aparecer:
+
+- nombre;
+- tipo de dispositivo;
+- medio;
+- relación entre dispositivos.
+
+En diagramas más avanzados podrán incorporarse otros datos cuando se hayan estudiado.
+
+## 11.5. Legibilidad
+
+Un buen diagrama técnico debe priorizar:
+
+> claridad → relación → información → legibilidad
+
+Para ello conviene:
+
+- evitar cruces de líneas innecesarios;
+- utilizar nombres coherentes;
+- mantener una simbología consistente;
+- ordenar visualmente los dispositivos;
+- diferenciar zonas cuando aporte información;
+- añadir una leyenda si existen distintos tipos de enlaces;
+- evitar elementos decorativos que no tengan significado técnico.
+
+Un diagrama de red no es una fotografía de la sala. No necesita representar mesas, personas, ventanas o las carcasas exactas de los dispositivos.
+
+## 11.6. Herramientas de representación
+
+Una red puede documentarse mediante:
+
+- Cisco Packet Tracer;
+- diagrams.net;
+- otras herramientas de diagramación equivalentes.
+
+**Cisco Packet Tracer** es un simulador de redes que permite representar dispositivos, conexiones y topologías, además de realizar posteriormente configuraciones y simulaciones.
+
+En esta unidad debe entenderse principalmente como una herramienta para:
+
+- representar;
+- conectar;
+- identificar dispositivos;
+- observar la estructura;
+- documentar una red.
+
+Construir una topología visualmente correcta no significa que todos los dispositivos estén ya configurados para comunicarse. La representación física y la configuración lógica son aspectos diferentes.
+
+---
+
+# 12. Visión conjunta de una LAN
+
+Los conceptos de esta unidad se relacionan entre sí.
+
+Una red local sencilla puede contener:
+
+```text
+                             OTRA RED
+                                │
+                              R-01
+                                │
+PC-01 ───┐                      │
+PC-02 ───┤                  SW-CENTRAL
+PRN-01 ──┼── SW-AULA ──────────┤
+PC-03 ───┘                      ├── SRV-CENTRO
+                                │
+                              AP-01
+                            )))    )))
+                         PORT-01  PORT-02
+```
+
+En esta representación pueden identificarse varias ideas de la unidad:
+
+- constituye una **LAN** porque trabaja en un ámbito local;
+- es una red **mixta** porque combina enlaces cableados e inalámbricos;
+- los PCs, la impresora, el servidor y los portátiles son **dispositivos finales**;
+- los switches, el router y el AP son **dispositivos intermedios**;
+- los equipos cableados pueden organizarse en **estrella** alrededor de un switch;
+- varias estrellas conectadas jerárquicamente pueden formar una estructura de **árbol o estrella extendida**;
+- el **switch** interconecta dispositivos dentro de la LAN;
+- el **router** comunica la LAN con otra red;
+- el **AP** incorpora clientes inalámbricos;
+- los enlaces cableados pueden utilizar cobre o, según el diseño, fibra;
+- los clientes Wi-Fi utilizan radio como medio de acceso;
+- la comunicación necesita **protocolos**, no únicamente conexiones físicas;
+- OSI y TCP/IP permiten ordenar las funciones que intervienen;
+- cada dispositivo puede tener nombre, interfaces y distintos identificadores;
+- un diagrama claro permite documentar la infraestructura para que otra persona pueda interpretarla.
+
+Comprender una LAN implica relacionar todos estos elementos y reconocer la función que cumple cada uno dentro del conjunto.

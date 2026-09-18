@@ -57,27 +57,6 @@ U07  🧭 Comunicar redes y acceder al exterior
 U08  🩺 Mantener, diagnosticar y resolver incidencias
 ```
 
-La idea que recorre todo el módulo es:
-
-```text
-COMPRENDER
-↓
-APLICAR
-↓
-COMPROBAR
-↓
-EXPLICAR
-↓
-TRANSFERIR
-```
-
-Y una regla profesional aparecerá una y otra vez:
-
-```text
-HACER ≠ TERMINAR
-```
-
-Una configuración o reparación no termina cuando «parece funcionar», sino cuando puedes **demostrarlo con evidencias**.
 
 ---
 
@@ -201,87 +180,6 @@ Una configuración o reparación no termina cuando «parece funcionar», sino cu
 
 ---
 
-## 📂 Cómo están organizados los apuntes
-
-Cada unidad tiene un archivo principal y una carpeta con sus apartados.
-
-Por ejemplo, la **U01** se organiza así:
-
-```text
-U01-Fundamentos.md
-
-1-fundamentos/
-├── U01.01.Que_es_una_red_local.md
-├── U01.02.Componentes_basicos_de_una_red.md
-├── U01.03.Tipos_de_red_y_alcance.md
-├── U01.04.Otras_formas_de_clasificar_una_red.md
-├── U01.05.Cliente_servidor_y_P2P.md
-├── ...
-└── U01.17.Caso_integrador_comprender_y_representar_una_LAN.md
-```
-
-El mismo criterio se mantiene en el resto del curso:
-
-```text
-U02-Prevencion.md
-2-prevencion/
-
-U03-Infraestructura_fisica.md
-3-infraestructura-fisica/
-
-U04-Interconexion_conmutacion.md
-4-interconexion-conmutacion/
-
-U05-TCP_IP_direccionamiento.md
-5-tcp-ip-direccionamiento/
-
-U06-VLAN_WLAN.md
-6-vlan-wlan/
-
-U07-Encaminamiento_NAT_IoT.md
-7-encaminamiento-nat-iot/
-
-U08-Mantenimiento_incidencias.md
-8-mantenimiento-incidencias/
-```
-
----
-
-## 🔬 Cómo aprenderás
-
-Estos apuntes no están pensados como una lista de definiciones para memorizar.
-
-A lo largo del curso combinarás:
-
-- 📖 **teoría explícita**, para comprender qué ocurre y por qué;
-- 🧩 **casos y problemas**, para tomar decisiones;
-- 🖥️ **Cisco Packet Tracer**, para construir, observar y comprobar redes;
-- 🐧 **Debian GNU/Linux**, para trabajar con herramientas reales;
-- 🪟 **Windows 10 en VirtualBox**, para comparar sistemas y diagnosticar;
-- 🔌 **prácticas físicas**, especialmente cableado y crimpado RJ45;
-- 🔎 **verificación**, para demostrar que una configuración funciona;
-- 🩺 **diagnóstico**, para encontrar la causa de una incidencia y no limitarse a probar cosas al azar.
-
-La dificultad aumenta progresivamente:
-
-```text
-OBSERVAR
-↓
-COMPLETAR
-↓
-MODIFICAR
-↓
-CONSTRUIR
-↓
-COMPROBAR
-↓
-DIAGNOSTICAR
-↓
-DISEÑAR Y JUSTIFICAR
-```
-
----
-
 ## 🤬 ¿Quién es CONRAD?
 
 CONRAD es un switch cascarrabias.
@@ -317,5 +215,12 @@ Solo intenta que ciertos errores sean difíciles de olvidar.
   <span style="font-size:0.7rem;color:var(--sl-color-gray-4);">
     Puedes compartir y adaptar el material para cualquier propósito, incluso comercial,
     siempre que reconozcas la autoría y compartas las modificaciones bajo la misma licencia.
+  </span><br>
+
+  <span>
+Basado en el proyecto de Redes para ASIR de  <a href="https://sergarb1.github.io/ApuntesRedes" target="_blank">
+Sergi Garcia Barea
+</a>
   </span>
+  
 </div>
