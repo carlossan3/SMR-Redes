@@ -1,3 +1,11 @@
+---
+title: "U03-Infraestructura_fisica"
+module: "Sistemas Microinformáticos y Redes"
+course: "1.º SMR"
+unit: "U03 — Infraestructura física y despliegue del cableado de red"
+version: "2026-2027"
+---
+
 # U03 — Infraestructura física y despliegue del cableado de red
 
 **Módulo:** Redes Locales  
