@@ -77,8 +77,9 @@ const unidades = [
   },*/
 ];
 
-/*
+
 const unidadesExpandidas = {
+  /*
   'U01-Fundamentos': [
     {
       slug: '1-fundamentos/U01.01.Que_es_una_red_local',
@@ -149,7 +150,8 @@ const unidadesExpandidas = {
       label: '17 · Caso integrador: comprender y representar una LAN',
     },
   ],
-};*/
+  */
+};
 
 /**
  * Generación del sidebar.
