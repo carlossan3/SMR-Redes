@@ -75,32 +75,30 @@ style="display:inline-block;padding:0.75rem 2rem;background:var(--sl-color-gray-
 En **Redes Locales** empezarás comprendiendo qué es una red y terminarás siendo capaz de **desplegarla, interconectarla, configurarla, mantenerla y diagnosticar incidencias**.
 
 ```text
-1.ª EVALUACIÓN · 78 h
+1.ª EVALUACIÓN
 
-U01  🌐 Fundamentos de redes · RA1 · 20 h
+U01  🌐 Fundamentos de redes · RA1
  ↓
-U02  🦺 Prevención de riesgos · RA6 · 8 h
+U02  🦺 Prevención de riesgos · RA6
  ↓
-U03  🔌 Infraestructura física · RA2 · 22 h
+U03  🔌 Infraestructura física · RA2
  ↓
-U04  🔀 Interconexión y conmutación · RA3 · 28 h
+U04  🔀 Interconexión y conmutación · RA3
 
 
-2.ª EVALUACIÓN · 60 h
+2.ª EVALUACIÓN
 
-U05  🧮 TCP/IP y direccionamiento · RA4 · 28 h
+U05  🧮 TCP/IP y direccionamiento · RA4
  ↓
-U06  🏢 VLAN y WLAN · RA4 · 16 h
+U06  🏢 VLAN y WLAN · RA4
  ↓
-U07  🧭 Encaminamiento, NAT e IoT · RA4 · 16 h
+U07  🧭 Encaminamiento, NAT e IoT · RA4
 
 
-3.ª EVALUACIÓN · 40 h
+3.ª EVALUACIÓN
 
-U08  🩺 Mantenimiento e incidencias · RA5 · 40 h
+U08  🩺 Mantenimiento e incidencias · RA5
 ```
-
-**Carga total del módulo: 178 horas.**
 
 ---
 
@@ -266,12 +264,12 @@ U08  🩺 Mantenimiento e incidencias · RA5 · 40 h
 
 ## 📊 Distribución temporal
 
-| Evaluación | Unidades              | RA                    |   Horas |
-| ---------- | --------------------- | --------------------- | ------: |
-| 1.ª        | U01 · U02 · U03 · U04 | RA1 · RA6 · RA2 · RA3 |      78 |
-| 2.ª        | U05 · U06 · U07       | RA4                   |      60 |
-| 3.ª        | U08                   | RA5                   |      40 |
-| **Total**  | **8 unidades**        | **RA1–RA6**           | **178** |
+| Evaluación | Unidades              | RA                    |
+| ---------- | --------------------- | --------------------- |
+| 1.ª        | U01 · U02 · U03 · U04 | RA1 · RA6 · RA2 · RA3 |
+| 2.ª        | U05 · U06 · U07       | RA4                   |
+| 3.ª        | U08                   | RA5                   |
+| **Total**  | **8 unidades**        | **RA1–RA6**           |
 
 ---
 
