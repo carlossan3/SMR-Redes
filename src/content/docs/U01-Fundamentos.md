@@ -2,8 +2,7 @@
 title: "U01 — Fundamentos de redes"
 ---
 
-**Módulo:** Redes Locales  
-**Ciclo:** 1.º de Sistemas Microinformáticos y Redes  
+**Módulo:** Redes Locales
 **Resultado de aprendizaje asociado:** RA1 — Reconoce la estructura de redes locales cableadas analizando las características de entornos de aplicación y describiendo la funcionalidad de sus componentes.
 
 ---
