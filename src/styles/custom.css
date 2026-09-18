@@ -376,51 +376,44 @@
   line-height: 1.3;
 }
 
-/* === MODO OSCURO === */
+/* === MODO OSCURO GENERAL === */
+
 :root[data-theme="dark"] {
   --sl-color-bg-nav: rgba(10, 20, 30, 0.92);
   --sl-color-bg-sidebar: rgba(10, 20, 30, 0.92);
   --sl-color-bg: #080f15;
 }
+
 :root[data-theme="dark"] .unit-card {
   background: rgba(255, 255, 255, 0.04);
   border-color: rgba(255, 255, 255, 0.06);
 }
+
 :root[data-theme="dark"] .unit-card:hover {
   background: rgba(255, 255, 255, 0.08);
   border-color: var(--sl-color-accent);
 }
-:root[data-theme="dark"] .ejercicio-links .elink {
-  background: rgba(255, 255, 255, 0.05);
-}
-:root[data-theme="dark"] .ejercicio-links .elink:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-:root[data-theme="dark"] .unit-card .desc code {
-  background: rgba(255, 255, 255, 0.08);
-}
-:root[data-theme="dark"] .home-page .hero {
-  background: linear-gradient(135deg, #040c15 0%, #0a1e30 40%, #1a4060 100%) !important;
-}
 
+/* === ACCESIBILIDAD · MODO OSCURO === */
+
+html[data-theme="dark"],
 :root[data-theme="dark"] {
-  --_access-menu-background-color: #111827;
+  --_access-menu-background-color: #111827 !important;
+  --_access-menu-item-button-background: #1f2937 !important;
 
-  --_access-menu-item-button-background: #1f2937;
+  --_access-menu-item-color: #ffffff !important;
+  --_access-menu-header-color: #ffffff !important;
 
-  --_access-menu-item-color: #f9fafb;
-  --_access-menu-header-color: #f9fafb;
+  --_access-menu-item-icon-color: #ffffff !important;
 
-  --_access-menu-item-icon-color: #f9fafb;
+  --_access-menu-item-button-hover-color: #ffffff !important;
+  --_access-menu-item-button-hover-background-color: #2563eb !important;
 
-  --_access-menu-item-button-hover-color: #ffffff;
-  --_access-menu-item-button-hover-background-color: #2563eb;
+  --_access-menu-item-hover-icon-color: #ffffff !important;
 
-  --_access-menu-item-hover-icon-color: #ffffff;
+  --_access-menu-item-button-active-color: #ffffff !important;
+  --_access-menu-item-button-active-background-color: #2563eb !important;
 
-  --_access-menu-item-button-active-color: #ffffff;
-  --_access-menu-item-button-active-background-color: #2563eb;
-
-  --_access-menu-item-active-icon-color: #ffffff;
-  --_access-menu-div-active-background-color: #2563eb;
+  --_access-menu-item-active-icon-color: #ffffff !important;
+  --_access-menu-div-active-background-color: #2563eb !important;
 }
